@@ -1,0 +1,69 @@
+#! /bin/sh
+##########
+# Resources
+# https://github.com/hlissner/dotfiles/blob/master/config/bspwm/bspwmrc
+# https://github.com/desyncr/bspwmrc
+##########
+
+# Startup
+
+# sxhkd
+pgrep -x sxhkd > /dev/null || mkdir -p $HOME/.logs && sxhkd >> $HOME/.logs/sxhkd 2>&1 &
+
+# Polybar
+$HOME/.config/polybar/launch.sh &
+
+# Set wallpaper
+feh --randomize --bg-scale $HOME/Pictures/Wallpapers/Desktop/* &
+
+# Compositor
+picom &
+
+# Notification Daemon
+dunst &
+
+# Config
+
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+bspc config border_width        1
+bspc config window_gap          5
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config top_padding 0
+
+# Colors
+## Nord
+#bspc config normal_border_color		"#4c566a"
+#bspc config focused_border_color	"#88c0d0"
+#bspc config presel_feedback_color	"#88c0d0"
+#bspc config active_border_color "#d8dee9"
+## Dracula
+bspc config normal_border_color "#44475a"
+bspc config active_border_color "#bd93f9"
+bspc config focused_border_color "#ff79c6"
+bspc config presel_feedback_color "#6272a4"
+
+# Mouse cursor
+xsetroot -cursor_name left_ptr &
+## Hide when inactive
+unclutter --ignore-scrolling &
+
+# Rules
+
+bspc rule -r '*'
+bspc rule -a Emacs27 state=tiled
+bspc rule -a Pavucontrol state=floating rectangle=400x400+0+0 center=true
+bspc rule -a Gimp state=floating follow=on
+bspc rule -a Zathura state=tiled
+
+# Monitors
+if [ "$(bspc query -M | wc -l)" -eq "2" ]; then
+	bspc monitor HDMI-0 -d 1 2 3 4 5 6 7 8 9
+	bspc monitor eDP-1-1 -d 0
+	bspc monitor eDP-1-1 -s HDMI-0
+else 
+	bspc monitor -d 1 2 3 4 5 6 7 8 9 0
+fi

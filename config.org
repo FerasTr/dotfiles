@@ -1,0 +1,51 @@
+#+TITLE: Config
+
+
+** Personal Information
+*** Name
+#+BEGIN_SRC emacs-lisp
+(setq user-full-name "Feras D")
+#+END_SRC
+*** Email
+#+BEGIN_SRC emacs-lisp
+(setq user-mail-address "daragma.feras@gmail.com")
+#+END_SRC
+
+*** Ui
+**** Resize the frame pixelwise. Making emacs compatible with tiling window managers
+#+BEGIN_SRC emacs-lisp
+(setq frame-resize-pixelwise t)
+#+END_SRC
+**** Set the scale factor for ~all-the-icons~
+#+BEGIN_SRC emacs-lisp
+(after! all-the-icons
+  (setq all-the-icons-scale-factor 1.0))
+#+END_SRC
+**** Immediately show eldoc
+#+BEGIN_SRC emacs-lisp
+(setq eldoc-idle-delay 0)
+#+END_SRC
+**** Switch to window
+#+BEGIN_SRC emacs-lisp
+(setq evil-split-window-below t
+      evil-vsplit-window-right t)
+#+END_SRC
+
+** Doom modules
+*** lang/org
+#+BEGIN_SRC emacs-lisp
+(setq org-directory "~/Notes/"
+      org-ellipsis " ▼ "
+      org-superstar-headline-bullets-list '("☰" "☱" "☲" "☳" "☴" "☵" "☶" "☷" "☷" "☷" "☷")
+      org-log-done 'time)
+(require 'org-inlinetask)
+(setq display-line-numbers-type 'relative)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(setq doom-theme 'doom-dracula)
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+(setq doom-font (font-spec :family "Fira Code" :size 18))
+#+END_SRC

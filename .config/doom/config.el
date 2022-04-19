@@ -78,7 +78,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq deft-directory "~/notes")
+(setq deft-directory "~/notes/kaizen")
 
 (setq evil-split-window-below t
       evil-vsplit-window-right t)

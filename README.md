@@ -2,7 +2,7 @@
 
 Configuration files for KDE and BSPWM setup.
 
-> Why do it yourself if you can `git clone` it?
+> Why do it yourself if you can `git clone`?
 
 # Screenshots
 
@@ -15,3 +15,4 @@ Configuration files for KDE and BSPWM setup.
 - [4lgn](https://github.com/4lgn/dotfiles/tree/bspwm)
 - [Sarcophagus](https://github.com/sorahed/Sarcophagus)
 - [janleigh](https://github.com/janleigh/dotfiles)
+- [venthur](https://github.com/venthur/dotfiles)

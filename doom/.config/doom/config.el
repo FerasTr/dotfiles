@@ -40,11 +40,11 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/notes/")
+(setq org-directory "~/Workspace/notes/")
 (use-package org-roam
   :ensure t
   :custom
-  (org-roam-directory (file-truename "~/notes/kaizen")))
+  (org-roam-directory (file-truename "~/Workspace/notes/kaizen")))
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
@@ -78,7 +78,7 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
-(setq deft-directory "~/notes/kaizen")
+(setq deft-directory "~/Workspace/notes/kaizen")
 
 (setq evil-split-window-below t
       evil-vsplit-window-right t)

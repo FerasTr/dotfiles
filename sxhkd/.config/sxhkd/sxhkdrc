@@ -70,7 +70,7 @@ super + shift + space
 
 # quit/restart/logout/sleep session
 super + alt + q
-	qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+	rofi -show p -modi p:rofi-power-menu -lines 6
 
 # close and kill
 super + {_,shift + }w

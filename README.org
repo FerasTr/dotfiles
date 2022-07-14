@@ -6,6 +6,10 @@ Why do it yourself if you can `git clone`?
 
 * Installation
 ** Dependencies
+*** Fonts
+- fonts-noto-cjk
+- FiraCode
+- FiraCode Nerd
 ** Without DE
 
 ** With DE

@@ -70,7 +70,7 @@ super + shift + space
 
 # quit/restart/logout/sleep session
 super + alt + q
-	rofi -show p -modi p:rofi-power-menu -lines 6
+	rofi -show p -modi p:rofi-power-menu  -width 20 -lines 6
 
 # close and kill
 super + {_,shift + }w

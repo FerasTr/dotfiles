@@ -7,6 +7,9 @@
 ##########
 #
 
+# Window manager name
+wmname LG3D &
+
 # Startup
 pgrep -x sxhkd > /dev/null || sxhkd &
 picom --experimental-backends &
@@ -62,9 +65,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # make capslock an additional super key
 setxkbmap -option caps:super &
-
-# Window manager name
-wmname LG3D &
 
 # Wallpaper
 feh --randomize --bg-scale $HOME/Pictures/wallpapers/desktop/*

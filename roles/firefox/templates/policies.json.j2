@@ -1,0 +1,99 @@
+{
+  "policies": {
+    "Bookmarks": [
+      {
+        "Folder": "ctf",
+        "Placement": "toolbar",
+        "Title": "pwn.college",
+        "URL": "https://pwn.college"
+      },
+      {
+        "Folder": "ctf",
+        "Placement": "toolbar",
+        "Title": "Web Security Academy:",
+        "URL": "https://portswigger.net/web-security"
+      },
+      {
+        "Folder": "ctf",
+        "Placement": "toolbar",
+        "Title": "ctftime",
+        "URL": "https://ctftime.org"
+      },
+      {
+        "Folder": "dev",
+        "Placement": "toolbar",
+        "Title": "adventofcode",
+        "URL": "https://adventofcode.com"
+      }
+    ],
+    "DisableFeedbackCommands": true,
+    "DisableFirefoxAccounts": true,
+    "DisablePocket": true,
+    "DisplayBookmarksToolbar": true,
+    "DisplayMenuBar": "default-off",
+    "DontCheckDefaultBrowser": true,
+    "ExtensionSettings": {
+      {% if firefox_allowonly_extensions %}
+      {% for ext in firefox_allowonly_extensions %}
+      	"{{ ext.id }}": {
+	"installation_mode": "{{ ext.mode }}",
+	"install_url": "{{ ext.url }}"
+	},
+      {% endfor %}
+      {% endif %}
+      "uBlock@raymondhill.net": {
+      	"installation_mode": "normal_installed",
+	"install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
+	}
+	},
+      "*": {
+        "allowed_types": [
+          "extension",
+          "theme",
+          "dictionary",
+          "langpack"
+        ],
+        "installation_mode": "allowed"
+      },
+    "NoDefaultBookmarks": true,
+    "OfferToSaveLoginsDefault": true,
+    "PictureInPicture": {
+      "Enabled": false
+    },
+    "PopupBlocking": {
+      "Default": true
+    },
+    "Preferences": {
+      "browser.tabs.warnOnClose": true,
+      "browser.urlbar.suggest.history": false,
+      "browser.urlbar.suggest.openpage": false,
+      "network.IDN_show_punycode": true,
+      "places.history.enabled": true,
+      "ui.key.menuAccessKeyFocuses": false
+    },
+    "PromptForDownloadLocation": true,
+    "SearchBar": "unified",
+    "SearchEngines": {
+      "Add": [
+        {
+          "Method": "GET",
+          "Name": "SearX",
+          "URLTemplate": "https://search.privacyredirect.com/"
+        }
+      ],
+      "Remove": [
+        "duckduckgo.com"
+      ]
+    },
+    "SearchSuggestEnabled": true,
+    "ShowHomeButton": true,
+    "WebsiteFilter": {
+      "Block": [
+        "facebook.com",
+        "twitch.tv",
+        "instagram.com",
+        "tiktok.com"
+      ]
+    }
+  }
+}

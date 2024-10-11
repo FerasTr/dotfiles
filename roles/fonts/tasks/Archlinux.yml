@@ -1,0 +1,15 @@
+---
+- name: "Fonts | {{ ansible_distribution }} | Install Fonts"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - ttf-fira-code
+      - ttf-iosevka-nerd
+      - ttf-readex-pro
+      - ttf-jetbrains-mono-nerd
+      - ttf-material-symbols-variable-git
+      - ttf-space-mono-nerd
+      - ttf-rubik-vf
+      - ttf-gabarito-git
+      - fontconfig
+    state: present

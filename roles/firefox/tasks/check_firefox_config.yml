@@ -1,0 +1,7 @@
+- name: "Checking for Configuration Folder"
+  ansible.builtin.find:
+    paths: "{{ ansible_user_dir }}/.mullvad/mullvadbrowser"
+    patterns: '^.*\.default-release'
+    use_regex: true
+    file_type: directory
+  register: firefox_config_folder_search

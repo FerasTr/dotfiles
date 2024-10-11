@@ -1,0 +1,35 @@
+---
+# TODO: split into seperate task for each CTF category
+- name: "CTF | {{ ansible_distribution }} | Install CTF tools and utilities"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      # pwn
+      - pwninit
+      - strace
+      - ltrace
+      - patchelf
+      - gef-git
+      - python-pwntools
+      - valgrind
+      ## web
+      - ffuf
+      - sqlmap
+      ## steganography
+      - steghide
+      - nodejs-stegcloak
+      ## re
+      - rz-cutter
+      - radare2
+      # #- iaito
+      - binaryninja-free
+      - ghidra
+      # #- jd-gui
+      - avaloniailspy
+      # #- android-apktool
+      #- frida
+      # # - ida-free
+      ## misc
+      - z3
+      - python-z3-solver
+    state: present

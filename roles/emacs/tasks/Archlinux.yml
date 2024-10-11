@@ -1,0 +1,14 @@
+---
+- name: "Emacs | {{ ansible_distribution }} | Install Emacs Dependencies"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - fd
+      - ripgrep
+    state: present
+
+- name: "Emacs | {{ ansible_distribution }} | Install Emacs Wayland Nativcomp"
+  kewlfft.aur.aur:
+    use: yay
+    name: emacs-wayland
+    state: present

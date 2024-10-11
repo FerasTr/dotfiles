@@ -1,0 +1,23 @@
+---
+- name: "System | {{ ansible_distribution }} | Install system related dependencies and tools"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - bat
+      - unicode
+      - ascii
+      - curl
+      - wget
+      - sysdig
+      - sysdig-dkms
+      - scrcpy
+      - btop
+      - fzf
+      - man-db
+      - fastfetch
+      - gtk3
+      - eza
+      - flameshot
+      - maim
+      - graphviz
+    state: present

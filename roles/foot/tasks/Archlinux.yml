@@ -1,0 +1,6 @@
+---
+- name: "Foot | {{ ansible_distribution }} | Install Foot"
+  kewlfft.aur.aur:
+    use: yay
+    name: foot
+    state: present

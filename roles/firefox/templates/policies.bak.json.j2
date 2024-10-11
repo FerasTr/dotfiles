@@ -1,0 +1,131 @@
+{
+  "policies": {
+    "AppAutoUpdate": true,
+    "BlockAboutConfig": false,
+    "BlockAboutProfiles": true,
+    "BlockAboutSupport": false,
+    "Bookmarks": [
+      {
+        "Title": "Example",
+        "URL": "https://example.com",
+        "Favicon": "https://example.com/favicon.ico",
+        "Placement": "menu",
+        "Folder": "FolderName"
+      }
+    ],
+    "CaptivePortal": false,
+    "Certificates": {
+      "Install": ["cert1.der", "/home/username/cert2.pem"]
+    },
+    "Cookies": {
+      "Allow": [
+         "http://example.org/",
+         "https://drive.google.com",
+         "https://googleusercontent.com"
+      ],
+      "Block": ["http://example.edu/"],
+      "Default": true,
+      "AcceptThirdParty": "never",
+      "ExpireAtSessionEnd": false,
+      "RejectTracker": true,
+      "Locked": false
+    },
+    "DisableAppUpdate": false,
+    "DisableBuiltinPDFViewer": false,
+    "DisableDeveloperTools": false,
+    "DisableFirefoxAccounts": true,
+    "DisableFirefoxStudies": true,
+    "DisableForgetButton": true,
+    "DisableFormHistory": true,
+    "DisableMasterPasswordCreation": false,
+    "DisablePocket": true,
+    "DisablePrivateBrowsing": true,
+    "DisableProfileRefresh": true,
+    "DisableSecurityBypass": {
+      "InvalidCertificate": false,
+      "SafeBrowsing": false
+    },
+    "DisableTelemetry": true,
+    "DNSOverHTTPS": {
+      "Enabled":  false,
+      "Locked": true
+    },
+    "DontCheckDefaultBrowser": true,
+    "EnableTrackingProtection": { "Value": true, "Locked": false },
+    "ExtensionSettings": {
+      "*": {
+        "install_sources": ["https://addons.mozilla.org/"],
+        "installation_mode": "blocked",
+        "allowed_types": ["extension"]
+      },
+{% if firefox_allowonly_extensions %}
+{% for ext in firefox_allowonly_extensions %}
+      "{{ ext.id }}": {
+        "installation_mode": "{{ ext.mode }}",
+        "install_url": "{{ ext.url }}"
+      },
+{% endfor %}
+{% endif %}
+      "*": {
+        "installation_mode": "allowed",
+        "install_sources": ["https://addons.mozilla.org/"],
+        "allowed_types": ["dictionary", "langpack"]
+      }
+    },
+    "ExtensionUpdate": true,
+    "InstallAddonsPermission": {
+      "Allow": ["https://addons.mozilla.org"],
+      "Default": true
+    },
+    "NetworkPrediction": true,
+    "OfferToSaveLogins": false,
+    "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PasswordManagerEnabled": false,
+    "PDFjs": {
+      "Enabled": false,
+      "EnablePermissions": true
+    }
+    "Permissions": {
+      "Camera": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true,
+        "Locked": false
+      },
+      "Microphone": {
+        "Allow": [
+          "https://example.org",
+          "https://discord.com"
+        ],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true,
+        "Locked": false
+      },
+      "Location": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true,
+        "Locked": true
+      },
+      "Notifications": {
+        "Allow": ["https://example.org"],
+        "Block": ["https://example.edu"],
+        "BlockNewRequests": true,
+        "Locked": true
+      }
+    },
+    "PopupBlocking": {
+      "Allow": ["http://example.org/",
+                "http://example.edu/"],
+      "Default": true,
+      "Locked": false
+    },
+    "PromptForDownloadLocation": false,
+    "Proxy": { "Mode": "none", "Locked": false },
+    "RequestedLocales": "en-US",
+    "SearchBar": "separate",
+    "SearchSuggestEnabled": false,
+    "SSLVersionMin": "tls1.2"
+  }
+}

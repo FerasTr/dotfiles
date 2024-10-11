@@ -1,0 +1,14 @@
+---
+# - name: "Firefox | {{ ansible_distribution }} | Install Firefox Dependencies"
+#   kewlfft.aur.aur:
+#     use: yay
+#     name:
+#       - fd
+#       - ripgrep
+#     state: present
+
+- name: "Firefox | {{ ansible_distribution }} | Install Mullvad Browser"
+  kewlfft.aur.aur:
+    use: yay
+    name: mullvad-browser-bin
+    state: present

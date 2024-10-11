@@ -1,0 +1,6 @@
+---
+- name: "Neovim | {{ ansible_distribution }} | Install Neovim"
+  kewlfft.aur.aur:
+    use: yay
+    name: neovim
+    state: present

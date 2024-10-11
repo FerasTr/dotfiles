@@ -1,0 +1,6 @@
+---
+- name: "Kitty | {{ ansible_distribution }} | Install Kitty"
+  kewlfft.aur.aur:
+    use: yay
+    name: kitty
+    state: present

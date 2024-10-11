@@ -1,0 +1,40 @@
+---
+# tasks file for hyprland
+
+- name: "Hyprland | Checking for Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: hyprland_distribution_config
+
+# Run distribution specific ansible task
+- name: "Hyprland | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: hyprland_distribution_config.stat.exists
+
+# Create cache subfolder
+- name: "HyDE | Creating Cache Subfolder"
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.cache/hyde"
+    state: directory
+
+- name: "Hyprland | Configuration Symlinks"
+  ansible.builtin.file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+    force: true
+  loop:
+    - { src: "{{ role_path }}/files/hypr", dest: "{{ ansible_user_dir }}/.config/hypr" }
+    - { src: "{{ role_path }}/files/dunst", dest: "{{ ansible_user_dir }}/.config/dunst" }
+    - { src: "{{ role_path }}/files/rofi", dest: "{{ ansible_user_dir }}/.config/rofi" }
+    - { src: "{{ role_path }}/files/waybar", dest: "{{ ansible_user_dir }}/.config/waybar" }
+    - { src: "{{ role_path }}/files/ironbar", dest: "{{ ansible_user_dir }}/.config/ironbar" }
+    - { src: "{{ role_path }}/files/wlogout", dest: "{{ ansible_user_dir }}/.config/wlogout" }
+    - { src: "{{ role_path }}/files/ags", dest: "{{ ansible_user_dir }}/.config/ags" }
+
+# Copy script files to ~/.local/share/bin
+- name: "Hyprland | Copy Scripts Files"
+  ansible.builtin.copy:
+    src: "{{ role_path }}/files/scripts/"
+    dest: "{{ ansible_user_dir }}/.local/share/bin"
+    force: true

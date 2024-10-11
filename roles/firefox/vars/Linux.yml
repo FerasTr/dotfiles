@@ -1,0 +1,4 @@
+---
+
+fxroot_ext: /opt/mullvad-browser/distribution/extensions
+fxpolicies_path: /opt/mullvad-browser/distribution/policies.json

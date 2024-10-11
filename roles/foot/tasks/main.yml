@@ -1,0 +1,17 @@
+---
+# tasks file for foot
+- name: "foot | Checking for Distribution Config: {{ ansible_distribution }}"
+  ansible.builtin.stat:
+    path: "{{ role_path }}/tasks/{{ ansible_distribution }}.yml"
+  register: foot_distribution_config
+
+- name: "foot | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
+  when: foot_distribution_config.stat.exists
+
+- name: "foot | Configuration Symlink"
+  ansible.builtin.file:
+    src: "{{ role_path }}/files"
+    dest: "{{ ansible_user_dir }}/.config/foot"
+    state: link
+    force: true

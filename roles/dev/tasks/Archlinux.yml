@@ -1,0 +1,50 @@
+---
+- name: "Dev | {{ ansible_distribution }} | Install development tools, languages and utilities"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      # virtualization
+      - docker
+      # - podman
+      - wine
+      - minikube
+      # web
+      - nginx
+      # db
+      - sqlite
+      # lang
+      - nodejs
+      - python
+      - go
+      - powershell
+      - yasm
+      - php
+      - rustup
+      - ruby
+      - dotnet-sdk
+      - dotnet-runtime
+      - jdk-openjdk
+      # package managers
+      - npm
+      - composer
+      - gradle
+      # compilers
+      - gcc
+      - ghc
+      - clang
+      # lsp
+      - gopls
+      - rust-analyzer
+      # formatter
+      - clang-format-all
+      - python-black
+      - dockfmt-git
+      - tidy
+      - stylelint
+      - shfmt
+      - shellcheck
+      - js-beautify
+      # misc
+      - direnv
+      - dos2unix
+    state: present

@@ -39,7 +39,7 @@
       - gst-plugin-pipewire                                    # pipewire gstreamer client
       - wireplumber                                            # pipewire session manager
       - playerctl                                              # media player controller
-      # - pwvucontrol                                            # pipewire volume control
+      - pwvucontrol                                            # pipewire volume control
       - pavucontrol                                            # pulseaudio volume control
       - pamixer                                                # pulseaudio cli mixer
       - pactl                                                  # pulseaudio cli utility
@@ -48,7 +48,7 @@
       - bluez                                                  # bluetooth protocol stack
       - bluez-utils                                            # bluetooth utility cli
       - blueman                                                # bluetooth manager gui
-      - overskride
+      - overskride                                             # A simple bluetooth client
       - brightnessctl                                          # screen brightness control
       - udiskie                                                # manage removable media
       # - polkit-gnome

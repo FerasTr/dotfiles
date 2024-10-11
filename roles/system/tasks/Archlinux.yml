@@ -5,6 +5,7 @@
     name:
       - bat
       - unicode
+      - pacman-contrib                                         # for system update check
       - ascii
       - curl
       - wget

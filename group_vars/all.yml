@@ -1,5 +1,6 @@
 default_roles:
   # - system
+  # - vm
   # - dev
   # - fonts
   # - tmux
@@ -14,4 +15,6 @@ default_roles:
   # - firefox
   - hyde
 
+
 # exclude_roles:
+  - metal

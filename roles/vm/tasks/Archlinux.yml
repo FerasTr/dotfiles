@@ -1,0 +1,9 @@
+---
+- name: "Virtual Machine | {{ ansible_distribution }} | Install Virtual Machine Specific Packages"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - networkmanager                                         # network manager
+      # - network-manager-applet                                 # network manager system tray utility
+      - open-vm-tools
+    state: present

@@ -18,7 +18,7 @@
 }
 {
     "label" : "hibernate",
-    "action" : "loginctl lock-session && systemctl hibernate", // not sure what this is supposed to be (can be hyprlock && ...)
+    "action" : "loginctl lock-session && systemctl hibernate",
     "text" : "Hibernate",
     "keybind" : "h"
 }

@@ -15,6 +15,7 @@
       - kuyen-icon-theme-git
       - waypaper                                               # wallpaper frontend GUI
       - hyprlock                                               # lock screen
+      - hypridle                                               # idle management
       - hyperidle                                              # idle daemon
       # - swaylock-effects-git                                   # lock screen
       - wlogout                                                # logout menu

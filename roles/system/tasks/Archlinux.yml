@@ -16,6 +16,7 @@
       - fzf
       - man-db
       - fastfetch
+      - ps_mem
       - gtk3
       - eza
       - flameshot

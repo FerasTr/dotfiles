@@ -32,10 +32,12 @@
     - { src: "{{ role_path }}/files/wlogout", dest: "{{ ansible_user_dir }}/.config/wlogout" }
     - { src: "{{ role_path }}/files/ags", dest: "{{ ansible_user_dir }}/.config/ags" }
     - { src: "{{ role_path }}/files/avizo", dest: "{{ ansible_user_dir }}/.config/avizo" }
+    - { src: "{{ role_path }}/files/fastfetch", dest: "{{ ansible_user_dir }}/.config/fastfetch" }
 
 # Copy script files to ~/.local/share/bin
 - name: "Hyprland | Copy Scripts Files"
   ansible.builtin.copy:
     src: "{{ role_path }}/files/scripts/"
     dest: "{{ ansible_user_dir }}/.local/share/bin"
+    mode: u+rwx,g=,o=
     force: true

@@ -10,6 +10,7 @@
       - ttf-material-symbols-variable-git
       - ttf-space-mono-nerd
       - ttf-rubik-vf
+      - otf-geist-mono-nerd
       - ttf-gabarito-git
       - fontconfig
     state: present

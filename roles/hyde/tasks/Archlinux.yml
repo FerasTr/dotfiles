@@ -4,7 +4,6 @@
     use: yay
     name:
       - hyprland                                               # wlroots-based wayland compositor
-      - dunst                                                  # notification daemon
       - rofi-wayland                                           # application launcher
       - ulauncher                                              # launcher / power menu
       - avizo                                                  # volume / brightness indicator
@@ -64,6 +63,8 @@
       - ffmpegthumbs                                           # for dolphin video thumbnails
       - kde-cli-tools                                          # for dolphin file type defaults
       - libnotify                                              # for notifications
+      - dunst                                                  # notification daemon
+      - swaync                                                 # notification daemon
       - nwg-look                                               # gtk configuration tool
       - qt5ct                                                  # qt5 configuration tool
       - adw-gtk-theme-git                                      # libadwaita ported to GTK-3

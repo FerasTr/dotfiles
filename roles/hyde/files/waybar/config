@@ -1,95 +1,30 @@
-
 {
-    "layer": "top", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 34, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+"include": "~/.config/waybar/includes/modules",
+"layer": "top",
+"exclusive": true,
+"passthrough": false,
+"reload_style_on_change": true,
+"position": "top",
+"spacing": 11,
+"height": 34, // Waybar height (to be removed for auto height)
+"fixed-center": true,
+"ipc": true,
+"margin-top": 3,
+"margin-left": 8,
+"margin-right": 8,
 
-    // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "hyprland/submap", "hyprland/language", "network", "cpu", "memory", "tray"],
+"modules-left": [
+	"hyprland/workspaces",
+	"hyprland/window",
+	],
+"modules-center": [
+	"clock",
+	],
+"modules-right": [
+	"group/motherboard",
+	"custom/swaync",
+	"pulseaudio",
+	"custom/power",
+	],
 
-    // Modules configuration
-    "hyprland/workspaces": {
-         "disable-scroll": true,
-         "on-click": "activate",
-         "all-outputs": true,
-         "format": "{icon}",
-         "active-only": true,
-        "format-icons": {
-                "1": "一",
-                "2": "二",
-                "3": "三",
-                "4": "四",
-                "5": "五",
-                "6": "六",
-                "7": "七",
-                "8": "八",
-                "9": "九",
-                "10": "十",
-            },
-         "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
-         "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
-        "persistent-workspaces": {
-            "*": 10,
-            }
-     },
-
-    "keyboard-state": {
-        "numlock": false,
-        "capslock": false,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-
-    "hyprland/window": {
-        "max-length": 140,
-        "separate-outputs": true
-    },
-
-    "hyprland/language": {
-        "format": "{}",
-        "max-length": 18
-    },
-
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 0
-    },
-
-    "clock": {
-        "format": "{:L%H:%M %d-%m-%Y}",
-        "locale": "ja_JP.utf8",
-        "tooltip": false
-    },
-
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-
-    "memory": {
-        "format": "{}% ",
-        "tooltip": false
-    },
-
-    "network": {
-        "format-wifi": "{essid}",
-        "format-ethernet": "{ipaddr}/{cidr}",
-        "format-disconnected": "Disconnected ⚠",
-        "tooltip": false,
-    },
-    "pulseaudio": {
-        "format": "{volume}%{icon}",
-        "format-muted": "",
-        "on-click": "volumectl -dua toggle-mute",
-        "on-scroll-up": "volumectl -d up 5",
-        "on-scroll-down": "volumectl -d down 5",
-        "tooltip": false,
-    },
 }

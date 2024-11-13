@@ -22,11 +22,10 @@
 # TODO: make arguments as part of the argv variable 
 - name: "Firefox | Generating Configuration Folder"
   ansible.builtin.command:
-    cmd: 'timeout 10s mullvad-browser --headless'
+    cmd: 'timeout 10s librewolf --headless'
   changed_when: false
   ignore_errors: true
   when: firefox_config_folder_search.matched == 0
-
 
 - name: "Firefox | Check for Configuration Folder Again"
   include_tasks: check_firefox_config.yml
@@ -43,8 +42,8 @@
     state: link
   when: firefox_config_folder_path != 'false'
 
-- name: "Firefox | Enable Enterprise Policies"
-  ansible.builtin.template:
-    src: "{{ role_path }}/templates/{{ fxpolicies_template }}.j2"
-    dest: "{{ fxpolicies_path }}"
-  become: true
+# - name: "Firefox | Enable Enterprise Policies"
+#   ansible.builtin.template:
+#     src: "{{ role_path }}/templates/{{ fxpolicies_template }}.j2"
+#     dest: "{{ fxpolicies_path }}"
+#   become: true

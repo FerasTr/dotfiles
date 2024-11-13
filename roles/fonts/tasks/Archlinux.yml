@@ -4,6 +4,7 @@
     use: yay
     name:
       - ttf-fira-code
+      - otf-font-awesome
       - ttf-iosevka-nerd
       - ttf-readex-pro
       - ttf-jetbrains-mono-nerd

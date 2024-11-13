@@ -26,4 +26,4 @@ echo ${top_mgn}
 echo -ne "\n"
 echo ${bot_mgn}
 
-wlogout --show-binds --no-span --protocol layer-shell  -b 5 -L ${left_mgn} -R ${right_mgn} -T ${top_mgn} -B ${bot_mgn} &
+wlogout --show-binds --no-span --protocol layer-shell  -b 3 -L ${left_mgn} -R ${right_mgn} -T ${top_mgn} -B ${bot_mgn} &

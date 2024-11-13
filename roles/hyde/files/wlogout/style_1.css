@@ -1,8 +1,9 @@
+
 window {
     font-family: Iosevka Nerd Font;
     font-size: 16pt;
     color:  #cdd6f4; /* text */
-    background-color: rgba(30, 30, 46, 0.2);
+    background-color: rgba(30, 30, 46, 0.7);
 
 }
 
@@ -55,4 +56,17 @@ button:hover {
 }
 #reboot:hover {
   background-image: image(url("./icons/restart-hover.png"));
+}
+#lock {
+    background-image: image(url("./icons/lock.png"));
+}
+#lock:hover {
+  background-image: image(url("./icons/lock-hover.png"));
+}
+
+#hibernate {
+    background-image: image(url("./icons/hibernate.png"));
+}
+#hibernate:hover {
+  background-image: image(url("./icons/hibernate-hover.png"));
 }

@@ -16,3 +16,15 @@
     "text" : "Logout",
     "keybind" : "e"
 }
+{
+    "label" : "hibernate",
+    "action" : "loginctl lock-session && systemctl hibernate",
+    "text" : "Hibernate",
+    "keybind" : "h"
+}
+{
+    "label" : "lock",
+    "action" : "hyprlock",
+    "text" : "Lock",
+    "keybind" : "l"
+}

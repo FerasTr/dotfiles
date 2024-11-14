@@ -25,15 +25,14 @@
     force: true
   loop:
     - { src: "{{ role_path }}/files/hypr", dest: "{{ ansible_user_dir }}/.config/hypr" }
-    - { src: "{{ role_path }}/files/dunst", dest: "{{ ansible_user_dir }}/.config/dunst" }
     - { src: "{{ role_path }}/files/rofi", dest: "{{ ansible_user_dir }}/.config/rofi" }
     - { src: "{{ role_path }}/files/waybar", dest: "{{ ansible_user_dir }}/.config/waybar" }
-    - { src: "{{ role_path }}/files/ironbar", dest: "{{ ansible_user_dir }}/.config/ironbar" }
     - { src: "{{ role_path }}/files/wlogout", dest: "{{ ansible_user_dir }}/.config/wlogout" }
-    - { src: "{{ role_path }}/files/ags", dest: "{{ ansible_user_dir }}/.config/ags" }
     - { src: "{{ role_path }}/files/avizo", dest: "{{ ansible_user_dir }}/.config/avizo" }
     - { src: "{{ role_path }}/files/fastfetch", dest: "{{ ansible_user_dir }}/.config/fastfetch" }
     - { src: "{{ role_path }}/files/swaync", dest: "{{ ansible_user_dir }}/.config/swaync" }
+    - { src: "{{ role_path }}/files/sddm/themes/catppuccin-mocha", dest: "/usr/share/sddm/themes" }
+    - { src: "{{ role_path }}/files/sddm/sddm.conf", dest: "/etc" }
 
 # Copy script files to ~/.local/share/bin
 - name: "Hyprland | Copy Scripts Files"

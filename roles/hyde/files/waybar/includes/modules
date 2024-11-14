@@ -191,10 +191,12 @@
         "max-length": 18
     },
 
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 0
-    },
+
+"tray": {
+    "icon-size": 15,
+    "spacing": 8,
+},
+
 
     "clock": {
         "format": "{:L%H:%M %d-%m-%Y}",

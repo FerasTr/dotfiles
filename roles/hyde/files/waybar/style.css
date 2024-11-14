@@ -8,7 +8,7 @@
 	padding: 0px;
 }
 
-@import "theme/mocha.css";
+@import "themes/mocha.css";
 
 window#waybar {
 	/* background:transparent; */

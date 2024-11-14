@@ -21,6 +21,7 @@
 	"clock",
 	],
 "modules-right": [
+	"tray",
 	"group/motherboard",
 	"custom/swaync",
 	"pulseaudio",

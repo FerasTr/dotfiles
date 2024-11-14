@@ -17,6 +17,9 @@
       - man-db
       - fastfetch
       - ps_mem
+      - parallel                                               # for parallel processing
+      - jq                                                     # for json processing
+      - imagemagick                                            # for image processing
       - gtk3
       - eza
       - flameshot

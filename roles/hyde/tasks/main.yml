@@ -23,6 +23,7 @@
     dest: "{{ item.dest }}"
     state: link
     force: true
+  become: true
   loop:
     - { src: "{{ role_path }}/files/hypr", dest: "{{ ansible_user_dir }}/.config/hypr" }
     - { src: "{{ role_path }}/files/rofi", dest: "{{ ansible_user_dir }}/.config/rofi" }
@@ -31,8 +32,8 @@
     - { src: "{{ role_path }}/files/avizo", dest: "{{ ansible_user_dir }}/.config/avizo" }
     - { src: "{{ role_path }}/files/fastfetch", dest: "{{ ansible_user_dir }}/.config/fastfetch" }
     - { src: "{{ role_path }}/files/swaync", dest: "{{ ansible_user_dir }}/.config/swaync" }
-    - { src: "{{ role_path }}/files/sddm/themes/catppuccin-mocha", dest: "/usr/share/sddm/themes" }
-    - { src: "{{ role_path }}/files/sddm/sddm.conf", dest: "/etc" }
+    - { src: "{{ role_path }}/files/sddm/themes/catppuccin-mocha", dest: "/usr/share/sddm/themes/catppuccin-mocha" }
+    - { src: "{{ role_path }}/files/sddm/sddm.conf", dest: "/etc/sddm.conf" }
 
 # Copy script files to ~/.local/share/bin
 - name: "Hyprland | Copy Scripts Files"

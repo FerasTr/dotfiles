@@ -16,23 +16,23 @@
     state: link
     force: true
 
-- name: "Emacs | Clone Doomemacs"
-  ansible.builtin.git:
-    repo: 'https://github.com/doomemacs/doomemacs'
-    dest: '{{ ansible_user_dir }}/.config/emacs'
-    depth: 1
-    force: true
-
-# TODO: make the --force as part of the argv
-# TODO: make the command run only if doom is not alread installed, otherwise sync and maybe cleanup
-- name: "Emacs | Install Doomemacs"
-  ansible.builtin.command:
-    cmd: '{{ ansible_user_dir }}/.config/emacs/bin/doom install --force'
-
-- name: "Emacs | Adding bin/doom to PATH"
-  ansible.builtin.lineinfile:
-    dest: /etc/profile
-    insertafter: EOF
-    line: "PATH=$PATH:{{ ansible_user_dir }}/.config/emacs/bin"
-  become: true
+# - name: "Emacs | Clone Doomemacs"
+#   ansible.builtin.git:
+#     repo: 'https://github.com/doomemacs/doomemacs'
+#     dest: '{{ ansible_user_dir }}/.config/emacs'
+#     depth: 1
+#     force: true
+#
+# # TODO: make the --force as part of the argv
+# # TODO: make the command run only if doom is not alread installed, otherwise sync and maybe cleanup
+# - name: "Emacs | Install Doomemacs"
+#   ansible.builtin.command:
+#     cmd: '{{ ansible_user_dir }}/.config/emacs/bin/doom install --force'
+#
+# - name: "Emacs | Adding bin/doom to PATH"
+#   ansible.builtin.lineinfile:
+#     dest: /etc/profile
+#     insertafter: EOF
+#     line: "PATH=$PATH:{{ ansible_user_dir }}/.config/emacs/bin"
+#   become: true
 

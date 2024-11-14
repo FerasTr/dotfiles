@@ -8,7 +8,7 @@ default_roles:
   # - bash
   # - kitty
   # - foot
-  # - emacs
+  - emacs
   # - neovim
   # - ctf
   # - pentest

@@ -1,20 +1,23 @@
 default_roles:
-  # - system
+  - system
+  # - ssh
+  # - git
   # - vm
   # - dev
   # - fonts
   # - tmux
-  # - git
   # - bash
   # - kitty
   # - foot
-  - emacs
+  # - emacs
   # - neovim
   # - ctf
   # - pentest
   # - firefox
-  - hyde
+  # - hyde
 
 
 # exclude_roles:
-  - metal
+  - placeholder
+
+

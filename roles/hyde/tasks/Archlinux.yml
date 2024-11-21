@@ -11,6 +11,7 @@
       - swww                                                   # wallpaper backend engine
       - gtk-update-icon-cache
       - kuyen-icon-theme-git
+      - catppuccin-gtk-theme-mocha
       - hyprcursor                                             # hyprcursor
       - nordzy-cursors                                         # cursor theme
       - nordzy-hyprcursors                                     # cursor theme with hyprcursor support

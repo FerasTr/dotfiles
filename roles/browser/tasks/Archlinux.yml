@@ -2,5 +2,7 @@
 - name: "Firefox | {{ ansible_distribution }} | Install Mullvad Browser"
   kewlfft.aur.aur:
     use: yay
-    name: librewolf-bin
+    name:
+      - librewolf-bin
+      - brave-bin
     state: present

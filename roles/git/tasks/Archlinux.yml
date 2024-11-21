@@ -1,0 +1,7 @@
+---
+- name: "System | {{ ansible_distribution }} | Install system related dependencies and tools"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - git
+    state: present

@@ -1,7 +1,5 @@
 default_roles:
   - system
-  # - ssh
-  # - git
   # - vm
   # - dev
   # - fonts
@@ -14,6 +12,8 @@ default_roles:
   # - ctf
   # - pentest
   # - firefox
+  - ssh
+  - git
   # - hyde
 
 

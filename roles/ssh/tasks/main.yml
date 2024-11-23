@@ -20,7 +20,6 @@
 
 - name: "SSH | Ensure ssh-agent is runnig"
   shell: 'eval "$(ssh-agent -s)" && ssh-add ~/.ssh/dev_key'
-  register: ssh_agent
   no_log: true
   changed_when: false
 

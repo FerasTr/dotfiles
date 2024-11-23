@@ -1,0 +1,6 @@
+---
+- name: "tmux | {{ ansible_distribution }} | Install tmux"
+  kewlfft.aur.aur:
+    use: yay
+    name: tmux
+    state: present

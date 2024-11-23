@@ -1,0 +1,6 @@
+---
+- name: "bash | {{ ansible_distribution }} | Install bash utils"
+  kewlfft.aur.aur:
+    use: yay
+    name: bash-completion
+    state: present

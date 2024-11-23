@@ -1,25 +1,37 @@
 ---
 # tasks file for ssh
+#
+
+- name: "SSH | Ensure .ssh directory exists"
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.ssh"
+    state: directory
+    mode: 0700
 
 - name: "SSH | Copy SSH keys"
-  copy:
-    dest: "{{ ansible_user_dir }}/.ssh/{{ ssh_key_item.key }}"
-    content: "{{ ssh_key_item.value }}"
-    mode: "0600"
+  ansible.builtin.copy:
+    dest: "{{ ansible_user_dir }}/.ssh/{{ item.key }}"
+    content: "{{ item.value }}"
+    mode: "{{ '644' if item.key.endswith('.pub') else '0600' }}"
   no_log: true
   loop_control:
-    loop_var: ssh_key_item
-  with_items: "{{ ssh_key | default({}) | dict2items }}"
+    loop_var: item
+  with_items: "{{ ssh_key | dict2items }}"
 
 - name: "SSH | Ensure ssh-agent is runnig"
-  shell: eval "$(ssh-agent -s)"
+  shell: 'eval "$(ssh-agent -s)" && ssh-add ~/.ssh/dev_key'
   register: ssh_agent
+  no_log: true
   changed_when: false
 
 #TODO: loop over all private keys and add them to the agent
-- name: "SSH | Add SSH private key to the ssh-agent"
-  shell: ssh-add "~/.ssh/dev_key"
-  when: ssh_agent.rc == 0
+# - name: "SSH | Add SSH private key to the ssh-agent"
+#   shell: 'ssh-add ~/.ssh/dev_key'
+#   when: ssh_agent.rc == 0
+
+# - name: "DEBUG | Print Hello World to stdout"
+#   ansible.builtin.debug:
+#     msg: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=([^;]+);', '\\1') }}"
 
 # - name: "SSH | Copy config"
 #   ansible.builtin.template:

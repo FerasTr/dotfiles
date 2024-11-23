@@ -1,0 +1,25 @@
+---
+# tasks file for debug
+
+- name: "DEBUG | Print Hello World to stdout"
+  ansible.builtin.debug:
+    msg: "YOU ARE NOW IN THE DEBUGGING ROLE"
+
+# - name: "DEBUG | Print all available facts for debugging"
+#   ansible.builtin.debug:
+#     var: ansible_facts
+
+# - name: "DEBUG | List all known variables and facts"
+#   ansible.builtin.debug:
+#     var: hostvars[inventory_hostname]
+
+
+- name: DEBUG | "Print variables from secrets.yaml"
+  ansible.builtin.debug:
+    msg: "{{ item.key }}: {{ item.value }}"
+  loop: "{{ secrets_yml_vars | dict2items }}"
+  vars:
+    secrets_yml_vars:
+      git_user_name: "{{ git_user_name | default('underfined') }}"
+      git_email_name: "{{ git_user_email | default('undefined') }}"
+      ssh_key: "{{ ssh_key | default('undefined') }}"

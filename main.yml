@@ -4,10 +4,6 @@
   connection: local
 
   tasks:
-    # - name: "Print all available facts for debugging"
-    #   ansible.builtin.debug:
-    #     var: ansible_facts
-    #
     - name: "Specify roles"
       ansible.builtin.set_fact:
         run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or default_roles | difference(exclude_roles | default([])) }}"

@@ -26,19 +26,19 @@
     scope: global
     value: "{{ git_user_name }}"
 
-# - name: "Git | clone core repositories"
-#   ansible.builtin.git:
-#     repo: "{{ item.repo }}"
-#     dest: "{{ item.dest }}"
-#     clone: yes
-#     update: yes
-#   loop:
-#     - repo: "git@github.com:FerasTr/notes.git"
-#       dest: "{{ ansible_user_dir }}/workspace/notes"
-#     - repo: "git@github.com:FerasTr/ctf.git"
-#       dest: "{{ ansible_user_dir }}/workspace/ctf"
-#     - repo: "git@github.com:FerasTr/misc.git"
-#       dest: "{{ ansible_user_dir }}/workspace/misc"
+- name: "Git | clone core repositories"
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    clone: true
+    update: false
+  loop:
+    - repo: "git@github.com:FerasTr/notes.git"
+      dest: "{{ ansible_user_dir }}/workspace/notes"
+    - repo: "git@github.com:FerasTr/ctf.git"
+      dest: "{{ ansible_user_dir }}/workspace/ctf"
+    - repo: "git@github.com:FerasTr/misc.git"
+      dest: "{{ ansible_user_dir }}/workspace/misc"
 
 
 # - name: "Git | Set user.signingkey"

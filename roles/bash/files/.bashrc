@@ -18,20 +18,31 @@ export PS1='\[\e[1;38;5;244m\]\t \[\e[1;36m\]\u@\H \[\e[1;33m\]\w \[\e[1;36m\]\$
 # export PS1='\[\e[1;33m\]\W \[\e[1;36m\]\$ \[\e[0m\]'
 
 ##################################
-## ls, exa & more colored stuff ##
+##    alias modern commands     ##
 ##################################
 
-if which exa >/dev/null; then
-	# exa is a modern ls replacement with Git integration: https://the.exa.website
-	alias ls="exa --git-ignore"
-	alias ll="exa --git-ignore --git -l --group"
-	alias la="exa --git -la"
+if which eza >/dev/null; then
+    alias ls='eza --icons'
+	# alias ls="exa --git-ignore"
+	# alias ll="exa --git-ignore --git -l --group"
+	# alias la="exa --git -la"
 else
 	alias ls="ls --color=always"
-	alias ll="ls -l"
-	alias la="ls -lA"
+	# alias ll="ls -l"
+	# alias la="ls -lA"
 fi
-for alias in lsl sls lsls sl l s; do alias $alias=ls; done
+
+if which bat >/dev/null; then
+    alias cat='bat --paging=never'
+fi
+
+if which rg >/dev/null; then
+    alias grep='rg --hidden --follow --glob "!.git"'
+fi
+
+if which fd >/dev/null; then
+    alias grep='rg --hidden'
+fi
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'

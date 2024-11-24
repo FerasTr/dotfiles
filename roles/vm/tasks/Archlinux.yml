@@ -4,6 +4,6 @@
     use: yay
     name:
       - networkmanager                                         # network manager
-      # - network-manager-applet                                 # network manager system tray utility
       - open-vm-tools
+      - vulkan-swarst
     state: present

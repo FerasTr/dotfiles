@@ -5,10 +5,14 @@
     name:
       - hyprland                                               # wlroots-based wayland compositor
       - rofi-wayland                                           # application launcher
+      - hyprlauncher-bin
+      - hyprgui-bin
       - avizo                                                  # volume / brightness indicator
       - phinger-cursors                                        # cursor
       - waybar                                                 # system bar
       - swww                                                   # wallpaper backend engine
+      - hyprwall-bin
+      - gwenview
       - gtk-update-icon-cache
       - kuyen-icon-theme-git
       - catppuccin-gtk-theme-mocha

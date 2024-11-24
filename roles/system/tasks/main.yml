@@ -23,6 +23,7 @@
     path: "{{ ansible_user_dir }}/Pictures/Wallpapers"
     state: directory
 
+# TODO: make these two copies a single task
 # Copying default wallpaper
 - name: "System | Copying default wallpaper"
   ansible.builtin.copy:

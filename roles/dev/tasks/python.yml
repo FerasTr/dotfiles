@@ -1,0 +1,9 @@
+- name: "Python | Install pip packages"
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - pyflakes
+    - isort
+    - pipenv
+    - nosetests

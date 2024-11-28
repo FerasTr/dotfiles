@@ -1,5 +1,5 @@
 ---
-- name: "System | {{ ansible_distribution }} | Install system related dependencies and tools"
+- name: "Git | {{ ansible_distribution }} | Install system related dependencies and tools"
   kewlfft.aur.aur:
     use: yay
     name:

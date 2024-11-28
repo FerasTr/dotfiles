@@ -9,9 +9,9 @@
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: tmux_distribution_config.stat.exists
 
-# - name: "tmux | Configuration Symlink"
-#   ansible.builtin.file:
-#     src: "{{ role_path }}/files"
-#     dest: "{{ ansible_user_dir }}/.config/foot"
-#     state: link
-#     force: true
+- name: "tmux | Configuration Symlink"
+  ansible.builtin.file:
+    src: "{{ role_path }}/files"
+    dest: "{{ ansible_user_dir }}/.config/tmux"
+    state: link
+    force: true

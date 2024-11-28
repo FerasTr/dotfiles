@@ -44,6 +44,12 @@ if which fd >/dev/null; then
     alias grep='rg --hidden'
 fi
 
+# TODO: set sudoer editor to nvim as well
+alias vi='nvim'
+alias vim='nvim'
+alias ni='nvim'
+alias v='nvim'
+
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
@@ -137,3 +143,27 @@ alias yq="python3 -c 'import sys, yaml, json; json.dump(yaml.load(sys.stdin), sy
 ##################
 
 # TODO
+
+
+###########################
+## Environment Variables ##
+###########################
+
+DOTFILES_ROLES_DIR="$HOME/workspace/dotfiles/roles"
+
+
+###############
+## Functions ##
+###############
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}

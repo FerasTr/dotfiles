@@ -3,23 +3,25 @@ default_roles:
   - system
   - vm
   - bash
-  # - fonts
-  # - ssh
-  # - dev
-  # - tmux
-  # - kitty
-  # - foot
-  # - neovim
-  # - ctf
-  # - pentest
-  # - browser
-  # - git
-  # - emacs
+  - fonts
+  - dev
+  - tmux
+  - kitty
+  - foot
+  - neovim
+  - ctf
+  - browser
+  - ssh
+  - git
+  - emacs
+  - chatgpt
   - hyde
 
 
 exclude_roles:
   - debug
+
+OPENAI_API_KEY: placeholder
 
 git_user_name: !vault |
           $ANSIBLE_VAULT;1.1;AES256

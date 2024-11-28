@@ -14,25 +14,13 @@
     content: "{{ item.value }}"
     mode: "{{ '644' if item.key.endswith('.pub') else '0600' }}"
   no_log: true
+  force: false
   loop_control:
     loop_var: item
   with_items: "{{ ssh_key | dict2items }}"
 
-- name: "SSH | Ensure ssh-agent is runnig"
-  shell: 'eval "$(ssh-agent -s)" && ssh-add ~/.ssh/dev_key'
-  no_log: true
-  changed_when: false
-
-#TODO: loop over all private keys and add them to the agent
-# - name: "SSH | Add SSH private key to the ssh-agent"
-#   shell: 'ssh-add ~/.ssh/dev_key'
-#   when: ssh_agent.rc == 0
-
-# - name: "DEBUG | Print Hello World to stdout"
-#   ansible.builtin.debug:
-#     msg: "{{ ssh_agent.stdout | regex_search('SSH_AUTH_SOCK=([^;]+);', '\\1') }}"
-
-# - name: "SSH | Copy config"
-#   ansible.builtin.template:
-#     dest: "{{ ansible_user_dir }}/.ssh/config"
-#     src: "config.j2"
+# FIXME: this is broken and needs fixing
+# - name: "SSH | Ensure ssh-agent is runnig"
+#   shell: 'eval "$(ssh-agent -s)" && ssh-add ~/.ssh/dev_key'
+#   no_log: true
+#   changed_when: false

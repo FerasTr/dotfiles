@@ -1,0 +1,7 @@
+---
+- name: "SSH | {{ ansible_distribution }} | Install SSH related dependencies and tools"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - ssh
+    state: present

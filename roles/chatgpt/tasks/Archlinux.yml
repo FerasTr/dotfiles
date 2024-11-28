@@ -1,0 +1,7 @@
+---
+- name: "Dev | {{ ansible_distribution }} | Install development tools, languages and utilities"
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - chatblade
+    state: present

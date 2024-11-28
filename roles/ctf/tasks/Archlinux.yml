@@ -4,7 +4,7 @@
   kewlfft.aur.aur:
     use: yay
     name:
-      # pwn
+      ## pwn
       - pwninit
       - strace
       - ltrace
@@ -21,15 +21,57 @@
       ## re
       - rz-cutter
       - radare2
-      # #- iaito
+      - iaito
       - binaryninja-free
       - ghidra
-      # #- jd-gui
+      - jd-gui
       - avaloniailspy
-      # #- android-apktool
-      #- frida
-      # # - ida-free
+      - android-apktool
+      - frida
+      - ida-free
       ## misc
       - z3
       - python-z3-solver
+      ## analysis
+      - trid
+      - yara
+      - perl-image-exiftool
+      - msitools
+      - wxhexeditor
+      - tesseract
+      - binwalk
+      - python-ipwhois
+      - ruby-origami
+      ## testing
+      - bruno
+      - burpsuite
+      ## password cracking
+      - john
+      - hashcat
+      ## tunnels
+      - chisel-jpillora
+      ## enumeration
+      - nmap
+      - mitmproxy
+      - dirsearch
+      - subfinder
+      - nuclei
+      - whatweb
+      - zenmap
+      - wireshark-qt
+      - wireshark-cli
+      - wpscan
+      - httprobe
+      - airgeddon
+      - arpwatch
+      - ngrep
+      - tcpdump
+      - bettercap
+      ## OSINT
+      - sn0int # OSINT framework
+      - nexfil
+      #- phoneinfoga-bin
+      ## exploit
+      - metasploit
+      - shellnoob
     state: present

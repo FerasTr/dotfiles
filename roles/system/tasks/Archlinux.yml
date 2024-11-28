@@ -25,4 +25,8 @@
       - flameshot
       - maim
       - graphviz
+      - fd
+      - ripgrep
+      - ca-certificates
+      - gnupg
     state: present

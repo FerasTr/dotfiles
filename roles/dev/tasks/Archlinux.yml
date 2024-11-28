@@ -3,39 +3,50 @@
   kewlfft.aur.aur:
     use: yay
     name:
-      # virtualization
+      ## virtualization
       - docker
+      - kubectl
+      - k9s
+      - minikube
+      ## cloud
+      - aws-cli
       # - podman
       - wine
-      - minikube
-      # web
+      ## web
       - nginx
-      # db
+      ## db
       - sqlite
-      # lang
+      - redis
+      - mongodb
+      ## lang
       - nodejs
       - python
+      - python-pip
+      - python-grip-git # github markdown preview
       - go
+      - gomodifytags-git
+      - gotests
+      - gore
       - powershell
       - yasm
       - php
       - rustup
       - ruby
-      - dotnet-sdk
-      - dotnet-runtime
+      # - dotnet-sdk
+      # - dotnet-runtime
       - jdk-openjdk
-      # package managers
+      ## package managers
       - npm
       - composer
       - gradle
-      # compilers
+      ## compilers
       - gcc
       - ghc
       - clang
-      # lsp
+      ## lsp
       - gopls
       - rust-analyzer
-      # formatter
+      ## formatter
       - clang-format-all
       - python-black
       - dockfmt-git
@@ -44,7 +55,7 @@
       - shfmt
       - shellcheck
       - js-beautify
-      # misc
+      ## misc
       - direnv
       - dos2unix
     state: present

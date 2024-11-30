@@ -6,12 +6,7 @@
   tasks:
     - name: "Specify roles"
       ansible.builtin.set_fact:
-        run_roles: "{{ ansible_run_tags != ['all'] and ansible_run_tags or default_roles | difference(exclude_roles | default([])) }}"
-        # The default value for `ansible_run_tags` is ['all'] when no argument is specifed with `--tags`.
-        # `ansible_run_tags != ['all'] and ansible_run_tags` evaluates to the passed arguments only, ignoring the default values.
-        # `or default_roles` evaluates to the default roles specifed in 'group_vars/all.yml' when no arguments are passed
-        # `| difference(exclude_roles | default([]))` is used to filter certain roles from the default list when building.
-        # Exluded roles are defined under the `exclude_roles` list in 'group_vars/all.yml'. If the list is not defined, an empty list is used.
+        run_roles: "{{ default_roles | community.general.lists_difference(exclude_roles | default([])) }}"
       tags:
         - always
 

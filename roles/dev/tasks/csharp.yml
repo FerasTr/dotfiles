@@ -1,4 +1,4 @@
 
-- name: "C\# | Ensure ssh-agent is runnig"
+- name: "Csharp | Ensure ssh-agent is runnig"
   ansible.builtin.shell: 'dotnet tool install csharpier -g'
   changed_when: false

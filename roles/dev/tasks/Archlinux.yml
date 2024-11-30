@@ -5,7 +5,7 @@
     name:
       ## virtualization
       - docker
-      - kubectl
+      # - kubectl
       - k9s
       - minikube
       ## cloud
@@ -16,17 +16,21 @@
       - nginx
       ## db
       - sqlite
-      - redis
-      - mongodb
+      # - redis
+      # - mongodb
       ## lang
       - nodejs
       - python
-      - python-pip
-      - python-grip-git # github markdown preview
+      - python-pyflakes
+      - python-isort
+      - python-pipenv
+      - python-nose
+      # - python-pip
+      # - python-grip-git # github markdown preview
       - go
-      - gomodifytags-git
-      - gotests
-      - gore
+      # - gomodifytags-git
+      # - gotests
+      # - gore
       - powershell
       - yasm
       - php

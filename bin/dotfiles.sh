@@ -1,58 +1,18 @@
 #!/bin/bash
 
-# color codes
-RESTORE='\033[0m'
-NC='\033[0m'
-BLACK='\033[00;30m'
-RED='\033[00;31m'
-GREEN='\033[00;32m'
-YELLOW='\033[00;33m'
-BLUE='\033[00;34m'
-PURPLE='\033[00;35m'
-CYAN='\033[00;36m'
-SEA="\\033[38;5;49m"
-LIGHTGRAY='\033[00;37m'
-LBLACK='\033[01;30m'
-LRED='\033[01;31m'
-LGREEN='\033[01;32m'
-LYELLOW='\033[01;33m'
-LBLUE='\033[01;34m'
-LPURPLE='\033[01;35m'
-LCYAN='\033[01;36m'
-WHITE='\033[01;37m'
-OVERWRITE='\e[1A\e[K'
-
-#emoji codes
-CHECK_MARK="${GREEN}\xE2\x9C\x94${NC}"
-X_MARK="${RED}\xE2\x9C\x96${NC}"
-PIN="${RED}\xF0\x9F\x93\x8C${NC}"
-CLOCK="${GREEN}\xE2\x8C\x9B${NC}"
-ARROW="${SEA}\xE2\x96\xB6${NC}"
-BOOK="${RED}\xF0\x9F\x93\x8B${NC}"
-HOT="${ORANGE}\xF0\x9F\x94\xA5${NC}"
-WARNING="${RED}\xF0\x9F\x9A\xA8${NC}"
-RIGHT_ANGLE="${GREEN}\xE2\x88\x9F${NC}"
-
-
 DOTFILES_LOG="$HOME/.dotfiles.log"
 
 set -e
 
 # Paths
-CONFIG_DIR="$HOME/.config/dotfiles"
 VAULT_SECRET="$HOME/.ansible-vault/vault.secret"
 DOTFILES_DIR="$HOME/.dotfiles"
-SSH_DIR="$HOME/.ssh"
-IS_FIRST_RUN="$HOME/.dotfiles_run"
+# SSH_DIR="$HOME/.ssh"
+
 # _header colorize the given argument with spacing
 function _task {
-  # if _task is called while a task was set, complete the previous
-  if [[ $TASK != "" ]]; then
-    printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
-  fi
-  # set new task title and print
   TASK=$1
-  printf "${LBLACK} [ ]  ${TASK} \n${LRED}"
+  echo "$TASK"
 }
 
 # _cmd performs commands with error checking
@@ -62,19 +22,17 @@ function _cmd {
     touch $DOTFILES_LOG
   fi
   # empty conduro.log
-  > $DOTFILES_LOG
+  >$DOTFILES_LOG
   # hide stdout, on error we print and exit
-  if eval "$1" 1> /dev/null 2> $DOTFILES_LOG; then
+  if eval "$1" 1>/dev/null 2>$DOTFILES_LOG; then
     return 0 # success
   fi
   # read error from log and add spacing
-  printf "${OVERWRITE}${LRED} [X]  ${TASK}${LRED}\n"
+  echo "[X] $TASK"
   while read line; do
     printf "      ${line}\n"
-  done < $DOTFILES_LOG
-  printf "\n"
-  # remove log file
-  rm $DOTFILES_LOG
+  done <$DOTFILES_LOG
+  echo
   # exit installation
   exit 1
 }
@@ -84,33 +42,8 @@ function _clear_task {
 }
 
 function _task_done {
-  printf "${OVERWRITE}${LGREEN} [✓]  ${LGREEN}${TASK}\n"
+  echo "[✓] $TASK"
   _clear_task
-}
-
-function ubuntu_setup() {
-  if ! dpkg -s ansible >/dev/null 2>&1; then
-    _task "Installing Ansible"
-    _cmd "sudo apt-get update"
-    _cmd "sudo apt-get install -y software-properties-common"
-    _cmd "sudo apt-add-repository -y ppa:ansible/ansible"
-    _cmd "sudo apt-get update"
-    _cmd "sudo apt-get install -y ansible"
-    _cmd "sudo apt-get install python3-argcomplete"
-    _cmd "sudo activate-global-python-argcomplete3"
-  fi
-  if ! dpkg -s python3 >/dev/null 2>&1; then
-    _task "Installing Python3"
-    _cmd "sudo apt-get install -y python3"
-  fi
-  if ! dpkg -s python3-pip >/dev/null 2>&1; then
-    _task "Installing Python3 Pip"
-    _cmd "sudo apt-get install -y python3-pip"
-  fi
-  if ! pip3 list | grep watchdog >/dev/null 2>&1; then
-    _task "Installing Python3 Watchdog"
-    _cmd "sudo apt-get install -y python3-watchdog"
-  fi
 }
 
 function arch_setup() {
@@ -141,6 +74,12 @@ function arch_setup() {
 
   _task "Setting Locale"
   _cmd "sudo localectl set-locale LANG=en_US.UTF-8"
+
+  _task "Installing yay"
+  _cmd "sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin && pushd /tmp/yay-bin && makepkg -si && popd"
+
+  _task "Setting up yay"
+  _cmd "yay -Y --gendb"
 }
 
 update_ansible_galaxy() {
@@ -148,18 +87,21 @@ update_ansible_galaxy() {
   local os_requirements=""
   _task "Updating Ansible Galaxy"
   if [ -f "$DOTFILES_DIR/requirements/$os.yml" ]; then
-    _task "${OVERWRITE}Updating Ansible Galaxy with OS Config: $os"
+    _task "Updating Ansible Galaxy with OS Config: $os"
     os_requirements="$DOTFILES_DIR/requirements/$os.yml"
   fi
   _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
 }
 
-source /etc/os-release
-_task "Loading Setup for detected OS: $ID"
-case $ID in
-  ubuntu)
-    ubuntu_setup
-    ;;
+_cleanup() {
+  _task "Remove logs file"
+  _cmd "rm $DOTFILES_LOG"
+}
+
+_install() {
+  source /etc/os-release
+  _task "Loading Setup for detected OS: $ID"
+  case $ID in
   arch)
     arch_setup
     ;;
@@ -167,41 +109,64 @@ case $ID in
     _task "Unsupported OS"
     _cmd "echo 'Unsupported OS'"
     ;;
-esac
+  esac
 
+  # TODO: generate keys to use with ssh and git
+  # if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
+  #   _task "Generating SSH keys"
+  #   _cmd "mkdir -p $SSH_DIR"
+  #   _cmd "chmod 700 $SSH_DIR"
+  #   _cmd "ssh-keygen -b 4096 -t rsa -f $SSH_DIR/id_rsa -N '' -C $USER@$HOSTNAME"
+  #   _cmd "cat $SSH_DIR/id_rsa.pub >> $SSH_DIR/authorized_keys"
+  # fi
 
-if ! [[ -f "$SSH_DIR/authorized_keys" ]]; then
-  _task "Generating SSH keys"
-  _cmd "mkdir -p $SSH_DIR"
-  _cmd "chmod 700 $SSH_DIR"
-  _cmd "ssh-keygen -b 4096 -t rsa -f $SSH_DIR/id_rsa -N '' -C $USER@$HOSTNAME"
-  _cmd "cat $SSH_DIR/id_rsa.pub >> $SSH_DIR/authorized_keys"
-fi
+  # TODO: implement a task that checks for updates locally then pushes to remote
+  if ! [[ -d "$DOTFILES_DIR" ]]; then
+    _task "Cloning repository"
+    _cmd "git clone --quiet https://github.com/FerasTr/dotfiles.git $DOTFILES_DIR"
+  else
+    _task "Updating repository"
+    _cmd "git -C $DOTFILES_DIR pull --quiet"
+  fi
 
-if ! [[ -d "$DOTFILES_DIR" ]]; then
-  _task "Cloning repository"
-  _cmd "git clone --quiet https://github.com/TechDufus/dotfiles.git $DOTFILES_DIR"
-else
-  _task "Updating repository"
-  _cmd "git -C $DOTFILES_DIR pull --quiet"
-fi
+  pushd "$DOTFILES_DIR" 2>&1 >/dev/null
+  update_ansible_galaxy $ID
 
-pushd "$DOTFILES_DIR" 2>&1 > /dev/null
-update_ansible_galaxy $ID
+  _task "Running playbook"
+  _task_done
+  if [[ -f $VAULT_SECRET ]]; then
+    ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$@"
+  else
+    ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
+  fi
 
-_task "Running playbook"; _task_done
-if [[ -f $VAULT_SECRET ]]; then
-  ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$@"
-else
-  ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
-fi
+  popd 2>&1 >/dev/null
+}
 
-popd 2>&1 > /dev/null
+main() {
+  if [ $# -eq 0 ]; then
+    echo "No arguments provided. Usage: dotfiles.sh [command] [options]"
+    exit 1
+  fi
 
-if ! [[ -f "$IS_FIRST_RUN" ]]; then
-  echo -e "${CHECK_MARK} ${GREEN}First run complete!${NC}"
-  echo -e "${ARROW} ${CYAN}Please reboot your computer to complete the setup.${NC}"
-  touch "$IS_FIRST_RUN"
-fi
+  case "$1" in
+  clean)
+    _cleanup
+    exit 0
+    ;;
 
-# vi:ft=sh:
+  install)
+    _install "$@"
+    exit 0
+    ;;
+
+  *)
+    echo "Unkown command: $1"
+    echo "Usage: $0 [clean] [install] (options)"
+    exit 1
+    ;;
+
+  esac
+}
+
+main "$@"

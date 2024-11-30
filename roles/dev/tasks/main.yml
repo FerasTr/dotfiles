@@ -12,5 +12,8 @@
   when: dev_distribution_config.stat.exists
 
 # Run language specific ansible task
-- name: DEV | Python | Run Python Tasks
-  ansible.builtin.include_tasks: "python.yml"
+# - name: DEV | Python | Run Python Tasks
+#   ansible.builtin.include_tasks: "python.yml"
+
+# - name: DEV | Csharp | Run Python Tasks
+#   ansible.builtin.include_tasks: "csharp.yml"

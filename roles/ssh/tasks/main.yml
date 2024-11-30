@@ -13,8 +13,8 @@
     dest: "{{ ansible_user_dir }}/.ssh/{{ item.key }}"
     content: "{{ item.value }}"
     mode: "{{ '644' if item.key.endswith('.pub') else '0600' }}"
+    force: no
   no_log: true
-  force: false
   loop_control:
     loop_var: item
   with_items: "{{ ssh_key | dict2items }}"

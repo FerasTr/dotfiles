@@ -24,11 +24,11 @@
       - iaito
       - binaryninja-free
       - ghidra
-      - jd-gui
+      # - jd-gui-bin # FIXME: build manually
       - avaloniailspy
-      - android-apktool
-      - frida
-      - ida-free
+      # - android-apktool # FIXME: build manually
+      # - frida
+      # - ida-free
       ## misc
       - z3
       - python-z3-solver
@@ -41,7 +41,7 @@
       - tesseract
       - binwalk
       - python-ipwhois
-      - ruby-origami
+      # - ruby-origami
       ## testing
       - bruno
       - burpsuite
@@ -49,7 +49,7 @@
       - john
       - hashcat
       ## tunnels
-      - chisel-jpillora
+      # - chisel-jpillora
       ## enumeration
       - nmap
       - mitmproxy

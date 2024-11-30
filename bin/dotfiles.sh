@@ -76,7 +76,7 @@ function arch_setup() {
   _cmd "sudo localectl set-locale LANG=en_US.UTF-8"
 
   _task "Installing yay"
-  _cmd "sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin && pushd /tmp/yay-bin && makepkg -si && popd"
+  _cmd "sudo pacman -S --needed git base-devel --noconfirm && git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin && pushd /tmp/yay-bin && makepkg -si && popd"
 
   _task "Setting up yay"
   _cmd "yay -Y --gendb"

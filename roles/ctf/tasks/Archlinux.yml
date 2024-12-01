@@ -22,7 +22,7 @@
       - rz-cutter
       - radare2
       - iaito
-      - binaryninja-free
+      # - binaryninja-free # FIXME: this package breaks installation
       - ghidra
       # - jd-gui-bin # FIXME: build manually
       - avaloniailspy

@@ -7,6 +7,7 @@ set -e
 # Paths
 VAULT_SECRET="$HOME/.ansible-vault/vault.secret"
 DOTFILES_DIR="$HOME/.dotfiles"
+ANSIBLE_CONFIG="$HOME/.dotfiles/ansible.cfg"
 # SSH_DIR="$HOME/.ssh"
 
 # _header colorize the given argument with spacing

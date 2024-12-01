@@ -11,7 +11,7 @@
       ## cloud
       - aws-cli
       # - podman
-      - wine
+      # - wine
       ## web
       - nginx
       ## db
@@ -34,7 +34,7 @@
       - powershell
       - yasm
       - php
-      - rustup
+      # - rustup # FIXME: this is breaking installation for some reason
       - ruby
       # - dotnet-sdk
       # - dotnet-runtime

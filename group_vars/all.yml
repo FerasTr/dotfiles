@@ -1,5 +1,6 @@
 default_roles:
   - debug
+  - neovim
   - system
   - vm
   - bash
@@ -8,7 +9,6 @@ default_roles:
   - tmux
   - kitty
   - foot
-  - neovim
   - ctf
   - browser
   - ssh

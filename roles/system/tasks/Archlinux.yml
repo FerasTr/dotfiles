@@ -4,6 +4,7 @@
     use: yay
     name:
       - bat
+      - less
       - unicode
       - pacman-contrib                                         # for system update check
       - ascii

@@ -3,6 +3,11 @@
 - [ ] Add screenshots.
 - [X] Revist all TODO, HACK and FIXME tags.
 
+* Installation
+```bash
+curl -fsSL https://raw.githubusercontent.com/FerasTr/dotfiles/main/bin/dotfiles.sh | bash -s -- install
+```
+
 * Resources
 - This ansible playbook is a modified version of [[https://github.com/TechDufus/dotfiles][this]] repo.
 - Some scripts and configurations are also based on other repos (tbu).

@@ -5,7 +5,7 @@
 
 * Installation
 #+BEGIN_SRC bash
-curl -fsSL https://raw.githubusercontent.com/FerasTr/dotfiles/main/bin/dotfiles.sh | bash -s -- install
+curl -fsSL https://raw.githubusercontent.com/FerasTr/dotfiles/main/bin/dotfiles.sh | sudo bash -s -- install
 #+END_SRC
 
 * Resources

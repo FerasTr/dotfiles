@@ -1,7 +1,7 @@
 * TODO-LIST
 - [ ] Update all `README` files.
 - [ ] Add screenshots.
-- [ ] Revist all TODO, HACK and FIXME tags.
+- [X] Revist all TODO, HACK and FIXME tags.
 
 * Resources
 - This ansible playbook is a modified version of [[https://github.com/TechDufus/dotfiles][this]] repo.

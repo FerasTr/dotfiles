@@ -3,5 +3,5 @@
   kewlfft.aur.aur:
     use: yay
     name:
-      - ssh
+      - openssh
     state: present

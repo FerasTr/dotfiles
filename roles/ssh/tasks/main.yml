@@ -2,22 +2,25 @@
 # tasks file for ssh
 #
 
+- name: "SSH | Run Tasks: {{ ansible_distribution }}"
+  ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml
+
 - name: "SSH | Ensure .ssh directory exists"
   ansible.builtin.file:
     path: "{{ ansible_user_dir }}/.ssh"
     state: directory
     mode: 0700
 
-- name: "SSH | Copy SSH keys"
-  ansible.builtin.copy:
-    dest: "{{ ansible_user_dir }}/.ssh/{{ item.key }}"
-    content: "{{ item.value }}"
-    mode: "{{ '644' if item.key.endswith('.pub') else '0600' }}"
-    force: no
-  no_log: true
-  loop_control:
-    loop_var: item
-  with_items: "{{ ssh_key | dict2items }}"
+# - name: "SSH | Copy SSH keys"
+#   ansible.builtin.copy:
+#     dest: "{{ ansible_user_dir }}/.ssh/{{ item.key }}"
+#     content: "{{ item.value }}"
+#     mode: "{{ '644' if item.key.endswith('.pub') else '0600' }}"
+#     force: no
+#   no_log: true
+#   loop_control:
+#     loop_var: item
+#   with_items: "{{ ssh_key | dict2items }}"
 
 # FIXME: this is broken and needs fixing
 # - name: "SSH | Ensure ssh-agent is runnig"

@@ -168,6 +168,8 @@ function _install() {
 
   update_ansible_galaxy $ID
 
+  # FIXME: arguments for ansible-playbook
+  # run_playbook $1
   run_playbook $1
 
   popd 2>&1 >/dev/null

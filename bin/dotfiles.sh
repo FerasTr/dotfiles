@@ -70,8 +70,8 @@ function _install_python_pkgs {
 }
 
 function _install_yay {
-  _task "installing yay"
   if ! command -v yay >/dev/null; then
+    _task "installing yay"
     tmp_dir=$(mktemp -d)
     function finish { rm -rf "$tmp_dir"; } # clean up after yourself...
     trap finish EXIT                       # ...no matter how you exist
@@ -108,10 +108,16 @@ function run_playbook() {
       extra_vars="$1"
   fi
   _task "Running playbook"
+  #FIXME: support passing arguments to ansible-playbook
+  # if [[ -f $VAULT_SECRET ]]; then
+  #   ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$extra_vars"
+  # else
+  #   ansible-playbook "$DOTFILES_DIR/main.yml" "$extra_vars"
+  # fi
   if [[ -f $VAULT_SECRET ]]; then
-    ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$extra_vars"
+    ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml"
   else
-    ansible-playbook "$DOTFILES_DIR/main.yml" "$extra_vars"
+    ansible-playbook "$DOTFILES_DIR/main.yml"
   fi
 }
 

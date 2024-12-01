@@ -129,7 +129,7 @@ function _cleanup() {
 
 function arch_setup() {
 
-  _update_packages
+  _update_pkgs
 
   _install_ansible
 

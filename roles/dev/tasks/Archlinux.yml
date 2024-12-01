@@ -11,7 +11,7 @@
       ## cloud
       - aws-cli
       # - podman
-      # - wine
+      # - wine # FIXME: this is breaking installation for some reason
       ## web
       - nginx
       ## db
@@ -31,7 +31,7 @@
       # - gomodifytags-git
       # - gotests
       # - gore
-      - powershell
+      # - powershell # FIXME: this is breaking installation for some reason
       - yasm
       - php
       # - rustup # FIXME: this is breaking installation for some reason

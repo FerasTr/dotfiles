@@ -105,9 +105,9 @@ function update_ansible_galaxy() {
 function run_playbook() {
   _task "Running playbook"
   if [[ -f $VAULT_SECRET ]]; then
-    ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$@"
+    ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$2"
   else
-    ansible-playbook "$DOTFILES_DIR/main.yml" "$@"
+    ansible-playbook "$DOTFILES_DIR/main.yml" "$2"
   fi
 }
 
@@ -177,7 +177,7 @@ function main() {
     ;;
 
   install)
-    _install "$@"
+    _install "$2"
     exit 0
     ;;
 

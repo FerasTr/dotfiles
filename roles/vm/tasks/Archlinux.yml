@@ -4,6 +4,7 @@
     use: yay
     name:
       - networkmanager                                         # network manager
-      - open-vm-tools
+      # - open-vm-tools                                        # for vmware
+      - virtualbox-guest-utils                                 # for virtualbox
       - vulkan-swarst
     state: present

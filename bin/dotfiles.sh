@@ -99,7 +99,7 @@ function update_ansible_galaxy() {
     _task "Updating Ansible Galaxy with OS Config: $os"
     os_requirements="$DOTFILES_DIR/requirements/$os.yml"
   fi
-  _cmd "ansible-galaxy install -r $DOTFILES_DIR/requirements/common.yml $os_requirements"
+  _cmd "ansible-galaxy install --force -r $DOTFILES_DIR/requirements/common.yml -r $os_requirements"
 }
 
 function run_playbook() {

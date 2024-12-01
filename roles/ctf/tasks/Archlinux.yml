@@ -37,7 +37,7 @@
       - yara
       - perl-image-exiftool
       - msitools
-      - wxhexeditor
+      # - wxhexeditor # FIXME: this packages breaks installation
       - tesseract
       - binwalk
       - python-ipwhois

@@ -95,11 +95,10 @@ function _install_yay {
 function update_ansible_galaxy() {
   local os=$1
   local os_requirements=""
-  _task "Updating Ansible Galaxy"
   if [ -f "$DOTFILES_DIR/requirements/$os.yml" ]; then
-    _task "Updating Ansible Galaxy with OS Config: $os"
     os_requirements="$DOTFILES_DIR/requirements/$os.yml"
   fi
+  _task "Updating Ansible Galaxy"
   _cmd "ansible-galaxy install --force -r $DOTFILES_DIR/requirements/common.yml -r $os_requirements"
 }
 

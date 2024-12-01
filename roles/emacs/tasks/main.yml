@@ -28,7 +28,7 @@
 # TODO: make the command run only if doom is not alread installed, otherwise sync and maybe cleanup
 - name: "Emacs | Install Doomemacs"
   ansible.builtin.command:
-    cmd: '{{ ansible_user_dir }}/.config/emacs/bin/doom install --hooks --env --fonts --aot --force'
+    cmd: '{{ ansible_user_dir }}/.config/emacs/bin/doom install --force'
 
 # HACK: I don't like this, find a better way to add doom to the path
 - name: "Emacs | Adding bin/doom to PATH"
@@ -40,4 +40,4 @@
 
 - name: "Emacs | Sync Config Files"
   ansible.builtin.command:
-    cmd: '{{ ansible_user_dir }}/.config/emacs/bin/doom sync --gc --force'
+    cmd: '{{ ansible_user_dir }}/.config/emacs/bin/doom sync --force'

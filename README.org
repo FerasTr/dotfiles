@@ -4,9 +4,9 @@
 - [X] Revist all TODO, HACK and FIXME tags.
 
 * Installation
-```bash
+#+BEGIN_SRC bash
 curl -fsSL https://raw.githubusercontent.com/FerasTr/dotfiles/main/bin/dotfiles.sh | bash -s -- install
-```
+#+END_SRC
 
 * Resources
 - This ansible playbook is a modified version of [[https://github.com/TechDufus/dotfiles][this]] repo.

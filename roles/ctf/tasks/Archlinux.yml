@@ -69,7 +69,7 @@
       - bettercap
       ## OSINT
       - sn0int # OSINT framework
-      - nexfil
+      # - nexfil
       #- phoneinfoga-bin
       ## exploit
       - metasploit

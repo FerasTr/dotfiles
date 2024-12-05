@@ -1,7 +1,7 @@
 * TODO-LIST
 - [ ] Update all `README` files.
 - [ ] Add screenshots.
-- [X] Revist all TODO, HACK and FIXME tags.
+- [ ] Revist all TODO, HACK and FIXME tags.
 
 * Installation
 #+BEGIN_SRC bash

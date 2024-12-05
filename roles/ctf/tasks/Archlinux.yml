@@ -73,5 +73,5 @@
       #- phoneinfoga-bin
       ## exploit
       - metasploit
-      - shellnoob
+      # - shellnoob
     state: present

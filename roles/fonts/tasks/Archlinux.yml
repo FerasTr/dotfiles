@@ -12,5 +12,6 @@
       - ttf-space-mono-nerd
       - otf-geist-mono-nerd
       - ttf-gabarito-git
+      - noto-fonts-cjk
       - fontconfig
     state: present

@@ -13,7 +13,7 @@ default_roles:
   - browser
   - ssh
   - git
-  # - emacs
+  - emacs
   - chatgpt
   - hyde
 

@@ -1,0 +1,5 @@
+#  sudo systemctl enable sddm
+#
+# sudo systemctl start display-manager 
+#
+# TODO: implement SDDM logic here

@@ -11,6 +11,7 @@
 
 - name: "Browser | Include System-Specific Variables"
   ansible.builtin.include_vars: "{{ ansible_system }}.yml"
+  ignore_errors: yes
 
 # - name: "Browser | Check for Configuration Folder"
 #   ansible.builtin.include_tasks: "{{ role_path }}/tasks/check_firefox_config.yml"

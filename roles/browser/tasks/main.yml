@@ -12,35 +12,35 @@
 - name: "Browser | Include System-Specific Variables"
   ansible.builtin.include_vars: "{{ ansible_system }}.yml"
 
-- name: "Browser | Check for Configuration Folder"
-  ansible.builtin.include_tasks: "{{ role_path }}/tasks/check_firefox_config.yml"
+# - name: "Browser | Check for Configuration Folder"
+#   ansible.builtin.include_tasks: "{{ role_path }}/tasks/check_firefox_config.yml"
 
 # - name: "DEBUG 1"
 #   debug:
 #     msg: "VAR: {{ firefox_config_folder_search }} and FILES: {{ firefox_config_folder_search.files }} and MATCHED: {{ firefox_config_folder_search.matched }}"
 
 # TODO: make arguments as part of the argv variable 
-- name: "Browser | Generating Configuration Folder"
-  ansible.builtin.command:
-    cmd: 'timeout 10s librewolf --headless'
-  changed_when: false
-  ignore_errors: true
-  when: firefox_config_folder_search.matched == 0
+# - name: "Browser | Generating Configuration Folder"
+#   ansible.builtin.command:
+#     cmd: 'timeout 10s librewolf --headless'
+#   changed_when: false
+#   ignore_errors: true
+#   when: firefox_config_folder_search.matched == 0
 
-- name: "Browser | Check for Configuration Folder Again"
-  include_tasks: check_firefox_config.yml
+# - name: "Browser | Check for Configuration Folder Again"
+#   include_tasks: check_firefox_config.yml
 
-- name: "Browser | Get Configuration Folder Name"
-  set_fact:
-    firefox_config_folder_path: "{{ firefox_config_folder_search.files[0].path }}"
+# - name: "Browser | Get Configuration Folder Name"
+#   set_fact:
+#     firefox_config_folder_path: "{{ firefox_config_folder_search.files[0].path }}"
 
-- name: "Browser | Symlink user.js File"
-  ansible.builtin.file:
-    src: "{{ role_path }}/files/user.js"
-    dest: "{{ firefox_config_folder_path }}/user.js"
-    force: true
-    state: link
-  when: firefox_config_folder_path != 'false'
+# - name: "Browser | Symlink user.js File"
+#   ansible.builtin.file:
+#     src: "{{ role_path }}/files/user.js"
+#     dest: "{{ firefox_config_folder_path }}/user.js"
+#     force: true
+#     state: link
+#   when: firefox_config_folder_path != 'false'
 
 # - name: "Browser | Enable Enterprise Policies"
 #   ansible.builtin.template:

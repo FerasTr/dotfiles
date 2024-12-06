@@ -11,3 +11,4 @@
 - name: "ChatGPT | Run Tasks: {{ ansible_distribution }}"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: chatgpt_distribution_config.stat.exists
+  ignore_errors: yes

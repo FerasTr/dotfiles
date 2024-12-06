@@ -43,6 +43,13 @@ function _update_pkgs {
   _cmd "sudo pacman -Syu --noconfirm"
 }
 
+function _install_core_pkgs {
+  _task "installing core packages"
+  _cmd "sudo pacman -S --noconfirm git"
+  _cmd "sudo pacman -S --noconfirm curl"
+  _cmd "sudo pacman -S --noconfirm wget"
+}
+
 function _install_ansible {
   if ! [ -x "$(command -v ansible)" ]; then
     _task "Installing Ansible"
@@ -52,24 +59,25 @@ function _install_ansible {
 
 function _install_python_pkgs {
   if ! pacman -Q python >/dev/null 2>&1; then
-    _task "Installing Python"
+    _task "installing Python"
     _cmd "sudo pacman -S --noconfirm python"
   fi
   if ! pacman -Q python-pip >/dev/null 2>&1; then
-    _task "Installing Pip"
+    _task "installing Pip"
     _cmd "sudo pacman -S --noconfirm python-pip"
   fi
   if ! pip list | grep watchdog >/dev/null 2>&1; then
-    _task "Installing Python3 Watchdog"
+    _task "installing Python3 Watchdog"
     _cmd "sudo pacman -S --noconfirm python-watchdog"
   fi
 
   if ! pip list | grep argcomplete >/dev/null 2>&1; then
-    _task "Installing Python argcomplete"
+    _task "installing Python argcomplete"
     _cmd "sudo pacman -S --noconfirm python-argcomplete"
   fi
 }
 
+# TODO: clean stdout
 function _install_yay {
   if ! command -v yay >/dev/null; then
     _task "installing yay"
@@ -102,13 +110,14 @@ function update_ansible_galaxy() {
   _cmd "ansible-galaxy install --force -r $DOTFILES_DIR/requirements/common.yml -r $os_requirements"
 }
 
+#
 function run_playbook() {
   local extra_vars=""
   if [ -n "$1" ]; then
       extra_vars="$1"
   fi
   _task "Running playbook"
-  #FIXME: support passing arguments to ansible-playbook
+  # FIXME: support passing arguments to ansible-playbook
   # if [[ -f $VAULT_SECRET ]]; then
   #   ansible-playbook --vault-password-file $VAULT_SECRET "$DOTFILES_DIR/main.yml" "$extra_vars"
   # else
@@ -137,9 +146,11 @@ function _cleanup() {
   _cmd "rm $DOTFILES_LOG"
 }
 
+# FIXME: running as root breaks the script (because of yay makepkg)
 function arch_setup() {
-
   _update_pkgs
+
+  _install_core_pkgs
 
   _install_ansible
 

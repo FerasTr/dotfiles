@@ -10,6 +10,7 @@
 - name: "Neovim | Run Tasks: {{ ansible_distribution }}"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: neovim_distribution_config.stat.exists
+  ignore_errors: yes
 
 - name: "Neovim | Configuration Symlink"
   ansible.builtin.file:

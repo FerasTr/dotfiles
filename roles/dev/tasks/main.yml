@@ -10,6 +10,7 @@
 - name: "DEV | Run Tasks: {{ ansible_distribution }}"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: dev_distribution_config.stat.exists
+  ignore_errors: yes
 
 # Run language specific ansible task
 # - name: DEV | Python | Run Python Tasks

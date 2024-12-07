@@ -5,7 +5,6 @@
     name:
       - wayland
       - wayland-utils
-      - weston
       - hyprland                                               # wlroots-based wayland compositor
       - rofi-wayland                                           # application launcher
       # - hyprlauncher-bin

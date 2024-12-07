@@ -34,7 +34,7 @@
       # - powershell # FIXME: this is breaking installation for some reason
       - yasm
       - php
-      - rustup # FIXME: this is breaking installation for some reason
+      # - rustup # FIXME: this is breaking installation for some reason
       - ruby
       - dotnet-sdk
       - dotnet-runtime
@@ -49,7 +49,7 @@
       - clang
       ## lsp
       - gopls
-      - rust-analyzer
+      # - rust-analyzer
       ## formatter
       - clang-format-all
       - python-black

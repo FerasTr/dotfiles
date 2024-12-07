@@ -3,15 +3,18 @@
   kewlfft.aur.aur:
     use: yay
     name:
+      - wayland
+      - wayland-utils
+      - weston
       - hyprland                                               # wlroots-based wayland compositor
       - rofi-wayland                                           # application launcher
-      - hyprlauncher-bin
-      - hyprgui-bin
+      # - hyprlauncher-bin
+      # - hyprgui-bin
       - avizo                                                  # volume / brightness indicator
       - phinger-cursors                                        # cursor
       - waybar                                                 # system bar
       - swww                                                   # wallpaper backend engine
-      - hyprwall-bin
+      # - hyprwall-bin
       - gwenview
       - gtk-update-icon-cache
       - kuyen-icon-theme-git
@@ -55,6 +58,7 @@
       - polkit-kde-agent                                       # authentication agent
       - xdg-desktop-portal-hyprland                            # xdg desktop portal for hyprland
       - xdg-desktop-portal-gtk                                 # xdg desktop portal using gtk
+      - polkit
       - qt5-imageformats                                       # for dolphin image thumbnails
       - ffmpegthumbs                                           # for dolphin video thumbnails
       - kde-cli-tools                                          # for dolphin file type defaults

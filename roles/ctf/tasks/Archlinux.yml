@@ -13,7 +13,7 @@
       - python-pwntools
       - valgrind
       ## web
-      - ffuf
+      - ffuf-bin
       - sqlmap
       ## steganography
       - steghide
@@ -43,32 +43,33 @@
       - python-ipwhois
       # - ruby-origami
       ## testing
-      - bruno
+      - bruno-bin
       - burpsuite
       ## password cracking
       - john
       - hashcat
+      - hashcat-utils
       ## tunnels
       # - chisel-jpillora
       ## enumeration
       - nmap
       - mitmproxy
       - dirsearch
-      - subfinder
-      - nuclei
+      - subfinder-bin
+      # - nuclei
       - whatweb
-      - zenmap
+      # - zenmap
       - wireshark-qt
       - wireshark-cli
       - wpscan
-      - httprobe
-      - airgeddon
-      - arpwatch
+      - httprobe-bin
+      # - airgeddon
+      # - arpwatch
       - ngrep
       - tcpdump
       - bettercap
       ## OSINT
-      - sn0int # OSINT framework
+      # - sn0int # OSINT framework
       # - nexfil
       #- phoneinfoga-bin
       ## exploit

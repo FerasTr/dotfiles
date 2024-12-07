@@ -34,10 +34,10 @@
       # - powershell # FIXME: this is breaking installation for some reason
       - yasm
       - php
-      # - rustup # FIXME: this is breaking installation for some reason
+      - rustup # FIXME: this is breaking installation for some reason
       - ruby
-      # - dotnet-sdk
-      # - dotnet-runtime
+      - dotnet-sdk
+      - dotnet-runtime
       - jdk-openjdk
       ## package managers
       - npm
@@ -45,7 +45,7 @@
       - gradle
       ## compilers
       - gcc
-      - ghc
+      # - ghc # Haskel
       - clang
       ## lsp
       - gopls
@@ -57,7 +57,7 @@
       - tidy
       - stylelint
       - shfmt
-      - shellcheck
+      - shellcheck-bin
       - js-beautify
       ## misc
       - direnv

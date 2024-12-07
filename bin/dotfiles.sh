@@ -46,6 +46,7 @@ function _update_pkgs {
 function _install_core_pkgs {
   _task "installing core packages"
   _cmd "sudo pacman -S --noconfirm git"
+  _cmd "sudo pacman -S --noconfirm base-devel"
   _cmd "sudo pacman -S --noconfirm curl"
   _cmd "sudo pacman -S --noconfirm wget"
 }
@@ -85,7 +86,7 @@ function _install_yay {
     function finish { rm -rf "$tmp_dir"; } # clean up after yourself...
     trap finish EXIT                       # ...no matter how you exist
 
-    git clone https://aur.archlinux.org/yay.git "$tmp_dir"
+    git clone https://aur.archlinux.org/yay-bin.git "$tmp_dir"
     pushd "$tmp_dir"
     makepkg -sri --noconfirm --needed
     popd

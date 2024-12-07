@@ -17,8 +17,10 @@
   ansible.builtin.service:
     name: vmtoolsd.service
     state: restarted
+  become: true
 
 - name: "VM | Run VMWare handlers 2"
   ansible.builtin.service:
     name: vmware-vmblock-fuse.service
     state: restarted
+  become: true

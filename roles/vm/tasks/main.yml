@@ -11,8 +11,14 @@
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: vm_distribution_config.stat.exists
 
-- name: "VM | Run VMWare handlers"
-  notify: 
-    - Start vmtoolsd
-    - Start vmware-vmblock-fuse
 # TODO: https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest
+# TODO: fix handlers
+- name: "VM | Run VMWare handlers 1"
+  ansible.builtin.service:
+    name: vmtoolsd.service
+    state: restarted
+
+- name: "VM | Run VMWare handlers 2"
+  ansible.builtin.service:
+    name: vmware-vmblock-fuse.service
+    state: restarted

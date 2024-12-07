@@ -1,2 +1,11 @@
 ---
 # handlers file for vm
+- name: Start vmtoolsd
+  ansible.builtin.service:
+    name: vmtoolsd.service
+    state: restarted
+
+- name: Start vmware-vmblock-fuse
+  ansible.builtin.service:
+    name: vmware-vmblock-fuse.service
+    state: restarted

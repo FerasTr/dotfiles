@@ -10,6 +10,9 @@
 - name: "VM | Run Tasks: {{ ansible_distribution }}"
   ansible.builtin.include_tasks: "{{ ansible_distribution }}.yml"
   when: vm_distribution_config.stat.exists
+  notify: 
+    - Start vmtoolsd
+    - Start vmware-vmblock-fuse
 
 
 # TODO: https://wiki.archlinux.org/title/VMware/Install_Arch_Linux_as_a_guest

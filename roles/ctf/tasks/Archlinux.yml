@@ -9,7 +9,7 @@
       - strace
       - ltrace
       - patchelf
-      - gef-git
+      - gef-git # TODO: add .gdbinit with content: source /usr/share/gef/gef.py
       - python-pwntools
       - valgrind
       ## web

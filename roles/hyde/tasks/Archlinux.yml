@@ -61,6 +61,7 @@
       - libnotify                                              # for notifications
       - swaync                                                 # notification daemon
       - nwg-look                                               # gtk configuration tool
+      - nwg-display
       - qt5ct                                                  # qt5 configuration tool
       - adw-gtk-theme-git                                      # libadwaita ported to GTK-3
       - qt6ct                                                  # qt6 configuration tool

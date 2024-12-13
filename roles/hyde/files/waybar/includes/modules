@@ -200,7 +200,6 @@
 
     "clock": {
         "format": "{:L%H:%M %d-%m-%Y}",
-        "locale": "ja_JP.utf8",
         "tooltip": false
     },
 

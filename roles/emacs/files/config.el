@@ -99,3 +99,22 @@
 
 (setq evil-split-window-below t
       evil-vsplit-window-right t)
+
+;; Stop LSP from starting automatically
+(after! php-mode
+  (remove-hook 'php-mode-local-vars-hook #'lsp!))
+
+(after! yaml-mode
+  (remove-hook 'yaml-mode-local-vars-hook #'lsp!))
+
+(after! go-mode
+  (remove-hook 'go-mode-local-vars-hook #'lsp!))
+
+(after! cc-mode
+  (remove-hook 'cc-mode-local-vars-hook #'lsp!))
+
+(after! c++-mode
+  (remove-hook 'c++-mode-local-vars-hook #'lsp!))
+
+(after! python-mode
+  (remove-hook 'python-mode-local-vars-hook #'lsp!))

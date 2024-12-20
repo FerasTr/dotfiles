@@ -2,7 +2,7 @@ default_roles:
   - debug
   - neovim
   - system
-  - vm
+  # - vm
   - bash
   - fonts
   - dev

@@ -6,6 +6,7 @@
       - wayland
       - wayland-utils
       - hyprland                                               # wlroots-based wayland compositor
+      - hyprland-qtutils
       - rofi-wayland                                           # application launcher
       - kanshi
       # - hyprlauncher-bin

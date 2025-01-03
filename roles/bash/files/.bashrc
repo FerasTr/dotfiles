@@ -112,6 +112,10 @@ export PATH="$HOME/.local/bin:$PATH"
 # Add ~/.local/bin/share to $PATH
 export PATH="$HOME/.local/share/bin:$PATH"
 
+# EDITOR and VISUAL
+export EDITOR=nvim
+export VISIUAL=nvim
+
 #############################
 ## Awesome online services ##
 #############################

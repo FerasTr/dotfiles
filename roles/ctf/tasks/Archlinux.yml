@@ -24,6 +24,7 @@
       - iaito
       # - binaryninja-free # FIXME: this package breaks installation
       - ghidra
+      - checksec
       # - jd-gui-bin # FIXME: build manually
       - avaloniailspy
       # - android-apktool # FIXME: build manually

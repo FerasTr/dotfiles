@@ -6,6 +6,7 @@
       - bat
       - less
       - unicode
+      - bc
       - pacman-contrib                                         # for system update check
       - ascii
       - curl

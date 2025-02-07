@@ -26,6 +26,7 @@
       - ghidra
       - checksec
       - tinyxxd
+      - execstack
       # - jd-gui-bin # FIXME: build manually
       - avaloniailspy
       # - android-apktool # FIXME: build manually

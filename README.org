@@ -2,6 +2,7 @@
 - [ ] Update all `README` files.
 - [ ] Add screenshots.
 - [ ] Revist all TODO, HACK and FIXME tags.
+- [ ] Add quickshell support (https://quickshell.org/).
 
 * Installation
 #+BEGIN_SRC bash

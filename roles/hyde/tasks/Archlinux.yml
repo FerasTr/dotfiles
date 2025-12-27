@@ -18,11 +18,11 @@
       # - hyprwall-bin
       - gwenview
       - gtk-update-icon-cache
-      - kuyen-icon-theme-git
       - catppuccin-gtk-theme-mocha
       - hyprcursor                                             # hyprcursor
       - nordzy-cursors                                         # cursor theme
       - nordzy-hyprcursors                                     # cursor theme with hyprcursor support
+      - nordzy-icon-theme-git
       - waypaper                                               # wallpaper frontend GUI
       - hyprlock                                               # lock screen
       - hypridle                                               # idle management

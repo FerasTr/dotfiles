@@ -3,6 +3,8 @@
   kewlfft.aur.aur:
     use: yay
     name:
+      - bitwarden
+      - bitwarden-cli
       - bat
       - less
       - unicode
@@ -16,6 +18,7 @@
       - scrcpy
       - btop
       - fzf
+      - zoxide
       - man-db
       - fastfetch
       - ps_mem
@@ -31,4 +34,10 @@
       - ripgrep
       - ca-certificates
       - gnupg
+      - impala
+      - bluetui
+      - gimp
+      - zathura
+      - pinta
+      - localsend
     state: present

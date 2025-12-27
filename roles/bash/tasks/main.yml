@@ -11,13 +11,6 @@
   when: foot_distribution_config.stat.exists
   ignore_errors: yes
 
-# - name: "bash | Configuration Symlink"
-#   ansible.builtin.file:
-#     src: "{{ role_path }}/files"
-#     dest: "{{ ansible_user_dir }}/.bashrc"
-#     state: link
-#     force: true
-
 - name: "Bash | Configuration Symlinks"
   ansible.builtin.file:
     src: "{{ item.src }}"
@@ -27,3 +20,11 @@
   loop:
     - { src: "{{ role_path }}/files/.bashrc", dest: "{{ ansible_user_dir }}/.bashrc" }
     - { src: "{{ role_path }}/files/.bash_profile", dest: "{{ ansible_user_dir }}/.bash_profile" }
+    - { src: "{{ role_path }}/files/.zshrc", dest: "{{ ansible_user_dir }}/.zshrc" }
+    - { src: "{{ role_path }}/files/.zprofile", dest: "{{ ansible_user_dir }}/.zprofile" }
+
+- name: "Set default shell to zsh"
+  become: true
+  user:
+    name: "{{ user_name }}"
+    shell: "/bin/zsh"

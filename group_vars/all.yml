@@ -20,8 +20,25 @@ default_roles:
 
 exclude_roles:
   - debug
+  - neovim
+  - system
+  - vm
+  - fonts
+  - dev
+  - tmux
+  - kitty
+  - foot
+  - ctf
+  - browser
+  - ssh
+  - git
+  - emacs
+  - chatgpt
+  - hyde
 
 OPENAI_API_KEY: placeholder
+
+user_name: fdxd
 
 git_user_name: !vault |
           $ANSIBLE_VAULT;1.1;AES256

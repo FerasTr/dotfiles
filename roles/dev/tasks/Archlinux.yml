@@ -5,6 +5,7 @@
     name:
       ## virtualization
       - docker
+      - lazydocker
       # - kubectl
       - k9s
       - minikube
@@ -19,30 +20,30 @@
       # - redis
       # - mongodb
       ## lang
-      - nodejs
+      # - nodejs
       - python
-      - python-pyflakes
-      - python-isort
-      - python-pipenv
-      - python-nose
+      # - python-pyflakes
+      # - python-isort
+      # - python-pipenv
+      # - python-nose
       # - python-pip
       # - python-grip-git # github markdown preview
-      - go
+      # - go
       # - gomodifytags-git
       # - gotests
       # - gore
       # - powershell # FIXME: this is breaking installation for some reason
       - yasm
-      - php
+      # - php
       # - rustup # FIXME: this is breaking installation for some reason
-      - ruby
-      - dotnet-sdk
-      - dotnet-runtime
-      - jdk-openjdk
+      # - ruby
+      # - dotnet-sdk
+      # - dotnet-runtime
+      # - jdk-openjdk
       ## package managers
       - npm
-      - composer
-      - gradle
+      # - composer
+      # - gradle
       ## compilers
       - gcc
       # - ghc # Haskel
@@ -62,4 +63,8 @@
       ## misc
       - direnv
       - dos2unix
+      - try-cli
+      - lazygit
+      - mise
+      - github-cli
     state: present

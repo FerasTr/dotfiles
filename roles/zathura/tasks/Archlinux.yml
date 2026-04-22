@@ -1,0 +1,6 @@
+---
+- name: "Zathura | {{ ansible_distribution }} | Install Zathura"
+  kewlfft.aur.aur:
+    use: yay
+    name: zathura
+    state: present

@@ -48,6 +48,7 @@
       - gcc
       # - ghc # Haskel
       - clang
+      - cppman
       ## lsp
       - gopls
       # - rust-analyzer
